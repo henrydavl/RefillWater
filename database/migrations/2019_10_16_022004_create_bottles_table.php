@@ -15,6 +15,9 @@ class CreateBottlesTable extends Migration
     {
         Schema::create('bottles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('capacity');
+            $table->string('price');
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

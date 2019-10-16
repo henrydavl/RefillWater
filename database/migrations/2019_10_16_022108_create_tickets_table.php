@@ -15,6 +15,11 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->text('description');
+            $table->bigInteger('submitted_by');
+            $table->bigInteger('responded_by')->nullable();
+            $table->enum('is_done', ['0', '1'])->default('0');
             $table->timestamps();
         });
     }

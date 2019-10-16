@@ -17,8 +17,14 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('balance', 6)->default(0);
+            $table->bigInteger('role_id')->index()->unsigned();
+            $table->text('activation_token')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->enum('is_verified', ['0','1'])->default('0');
+            $table->enum('is_active', ['0','1'])->default('0');
+            $table->enum('is_login', ['0','1'])->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

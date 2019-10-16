@@ -14,7 +14,11 @@ class CreateGallonsTable extends Migration
     public function up()
     {
         Schema::create('gallons', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id', '5')->primary();
+            $table->string('default_ml')->nullable();
+            $table->string('current_ml')->nullable();
+            $table->text('description');
+            $table->enum('is_empty', ['0','1'])->default('0');
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateTopUpsTable extends Migration
     {
         Schema::create('top_ups', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id');
+            $table->string('amount', 6);
+            $table->bigInteger('admin_id');
+            $table->enum('is_claimed', ['0','1'])->default('1');
             $table->timestamps();
         });
     }
