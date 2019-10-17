@@ -19,6 +19,7 @@ class CreateGallonsTable extends Migration
             $table->string('current_ml')->nullable();
             $table->text('description');
             $table->enum('is_empty', ['0','1'])->default('0');
+            $table->bigInteger('nRefill')->default(0);
             $table->timestamps();
         });
     }

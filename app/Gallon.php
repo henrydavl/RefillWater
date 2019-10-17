@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gallon extends Model
 {
     protected $fillable = [
-        'default_ml', 'current_ml', 'description', 'is_empty'
+        'default_ml', 'current_ml', 'description', 'is_empty','nRefill'
     ];
 
     public $incrementing = false;

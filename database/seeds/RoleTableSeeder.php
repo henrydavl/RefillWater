@@ -26,5 +26,10 @@ class RoleTableSeeder extends Seeder
         $role->name = "Bureau";
         $role->description = "Administrator level 3 - manage balance top-up (Royalty) ex: BAA, BMA, Library, etc";
         $role->save();
+
+        $role = new Role();
+        $role->name = "User";
+        $role->description = "Regular user";
+        $role->save();
     }
 }

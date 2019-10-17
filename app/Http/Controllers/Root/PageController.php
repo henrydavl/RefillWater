@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Root;
 
+use App\Gallon;
+use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +20,11 @@ class PageController extends Controller
     {
         $pages = 'dash';
         $msg = 'Welcome Root '.Auth::user()->name;
-        return view('root.dashboard', compact('pages', 'msg'));
+        $tickets = Ticket::all()->where('submitted_by', Auth::id());
+        $tic = Ticket::all()->where('submitted_by', Auth::id())->count();
+        $empty_gallons = Gallon::all()->where('is_empty', '1');
+        $empty = Gallon::all()->where('is_empty', '1')->count();
+        $user = User::all()->where('role_id', 4)->count();
+        return view('root.dashboard', compact('pages', 'msg', 'tic', 'tickets', 'empty_gallons','empty', 'user'));
     }
 }
