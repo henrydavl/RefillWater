@@ -16,9 +16,9 @@
         @if(\Illuminate\Support\Facades\Auth::user()->isRoot())
             @include('nav.root_side_nav')
         @elseif(\Illuminate\Support\Facades\Auth::user()->isAdmin())
-            @include('nav.root_side_nav')
+            @include('nav.admin_side_nav')
         @else
-            @include('nav.root_side_nav')
+            @include('nav.bureau_side_nav')
         @endif
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
