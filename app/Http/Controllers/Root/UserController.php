@@ -16,7 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'ureg';
+        $users = User::all()->where('role_id', 4);
+        return view('root.user.list.user', compact('pages', 'users'));
     }
 
     public function root()
@@ -38,7 +40,7 @@ class UserController extends Controller
     {
         $pages = 'ubur';
         $bur = User::all()->where('role_id', 3);
-        return view('root.user.list.root', compact('pages', 'bur'));
+        return view('root.user.list.bureau', compact('pages', 'bur'));
     }
 
     /**
