@@ -7,12 +7,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'root'], function (){
-    Route::get('/root/dashboard', 'Root\PageController@dashboard')->name('root');
+    Route::get('root/dashboard', 'Root\PageController@dashboard')->name('root');
+    Route::get('root/root', 'Root\UserController@root')->name('user.root');
+    Route::get('root/administrator', 'Root\UserController@admin')->name('user.admin');
+    Route::get('root/bureau', 'Root\UserController@bureau')->name('user.bureau');
+    Route::get('root/user/deactivate', 'Root\UserController@deactivate')->name('user.deactivate');
+    Route::post('root/user/deactivate', 'Root\UserController@deactivate');
+    Route::get('root/user/activate', 'Root\UserController@activate')->name('user.activate');
+    Route::post('root/user/activate', 'Root\UserController@activate');
+
+    Route::resource('/root/user', 'Root\UserController');
 });
 
 Route::group(['middleware'=>'admin'], function (){
