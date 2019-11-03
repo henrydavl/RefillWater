@@ -20,6 +20,7 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'bottle' ? 'active' : ''}}" href="bottle"><i class="fas fa-table"></i><span>Bottle Management</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'topUp' ? 'active' : ''}}" href="#"><i class="far fa-money-bill-alt"></i><span>Top-up</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'tic' ? 'active' : ''}}" href="#"><i class="fas fa-tasks"></i><span>Ticket</span></a></li>

@@ -27,4 +27,7 @@ class PageController extends Controller
         $user = User::all()->where('role_id', 4)->count();
         return view('root.dashboard', compact('pages', 'msg', 'tic', 'tickets', 'empty_gallons','empty', 'user'));
     }
+
+    
+    
 }

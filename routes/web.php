@@ -23,6 +23,10 @@ Route::group(['middleware'=>'root'], function (){
     Route::get('root/user/activate', 'Root\UserController@activate')->name('user.activate');
     Route::post('root/user/activate', 'Root\UserController@activate');
 
+    Route::get('root/bottle', 'Root\PageController@bottle')->name('bottle');
+    Route::get('root/bottle', 'Root\BottleController@index')->name('bottlecontroller');
+    Route::get('root/bottlecreate', 'Root\BottleController@create')->name('bottlecreate');
+
     Route::resource('/root/user', 'Root\UserController');
 });
 
