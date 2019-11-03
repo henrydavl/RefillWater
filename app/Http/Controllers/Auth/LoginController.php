@@ -46,21 +46,27 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'role_id' => 1,
-            'is_verified' => '1'
+            'is_verified' => '1',
+            'is_login' => '0',
+            'is_active' => '1'
         ];
 
         $admin = [
             'email' => $request->email,
             'password' => $request->password,
             'role_id' => 2,
-            'is_verified' => '1'
+            'is_verified' => '1',
+            'is_login' => '0',
+            'is_active' => '1'
         ];
 
         $bureau = [
             'email' => $request->email,
             'password' => $request->password,
             'role_id' => 3,
-            'is_verified' => '1'
+            'is_verified' => '1',
+            'is_login' => '0',
+            'is_active' => '1'
         ];
 
         if (Auth::attempt($root)) {

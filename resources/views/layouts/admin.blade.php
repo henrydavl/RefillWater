@@ -14,13 +14,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-        @if(\Illuminate\Support\Facades\Auth::user()->isRoot())
-            @include('nav.root_side_nav')
-        @elseif(\Illuminate\Support\Facades\Auth::user()->isAdmin())
-            @include('nav.admin_side_nav')
-        @else
-            @include('nav.bureau_side_nav')
-        @endif
+        @include('nav.side_nav')
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 @include('nav.top_nav')

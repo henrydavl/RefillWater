@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('gender', ['L','P'])->default('L');
-            $table->string('majors', 10)->nullable();
+            $table->string('majors', 50)->nullable();
             $table->string('balance', 6)->default(0);
             $table->bigInteger('role_id')->index()->unsigned();
             $table->text('activation_token')->nullable();
