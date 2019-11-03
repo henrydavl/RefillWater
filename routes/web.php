@@ -23,17 +23,14 @@ Route::group(['middleware'=>'root'], function (){
     Route::get('root/user/activate', 'Root\UserController@activate')->name('user.activate');
     Route::post('root/user/activate', 'Root\UserController@activate');
 
-    Route::get('root/bottle', 'Root\PageController@bottle')->name('bottle');
-    Route::get('root/bottle', 'Root\BottleController@index')->name('bottlecontroller');
-    Route::get('root/bottlecreate', 'Root\BottleController@create')->name('bottlecreate');
-
-    Route::resource('/root/user', 'Root\UserController');
+    Route::resource('root/bottle', 'Root\BottleController');
+    Route::resource('root/user', 'Root\UserController');
 });
 
 Route::group(['middleware'=>'admin'], function (){
-    Route::get('/admin/dashboard', 'Admin\PageController@dashboard')->name('admin');
+    Route::get('admin/dashboard', 'Admin\PageController@dashboard')->name('admin');
 });
 
 Route::group(['middleware'=>'bureau'], function (){
-    Route::get('/bureau/dashboard', 'Bureau\PageController@dashboard')->name('bureau');
+    Route::get('bureau/dashboard', 'Bureau\PageController@dashboard')->name('bureau');
 });
