@@ -20,7 +20,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($bottle as $bottle)
+                            @foreach($bottles as $bottle)
                                 <tr class="text-center">
                                     <td>{{$bottle->id}}</td>
                                     <td>{{$bottle->capacity}}</td>

@@ -16,8 +16,8 @@ class BottleController extends Controller
     public function index()
     {
         $pages = 'bottle';
-        $bottle = Bottle::all();
-        return view('root.bottle', compact('bottle', 'pages'));
+        $bottles = Bottle::all();
+        return view('root.bottle.index', compact('bottles', 'pages'));
     }
 
     /**
@@ -29,7 +29,7 @@ class BottleController extends Controller
     {
         $pages = 'bottle';
         $bottle = Bottle::all();
-        return view('root.bottlecreate', compact('bottle', 'pages'));
+        return view('root.bottle.crud.create', compact('bottle', 'pages'));
     }
 
     /**
