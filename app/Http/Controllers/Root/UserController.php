@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Root;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,7 +51,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $pages = 'uadd';
+        $roles = Role::all();
+        return view('root.user.crud.create', compact('pages', 'roles'));
     }
 
     /**
