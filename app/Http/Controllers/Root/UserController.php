@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Root;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'ureg';
+        $users = User::all()->where('role_id', 4);
+        return view('root.user.list.user', compact('pages', 'users'));
     }
 
     public function root()
@@ -38,7 +41,7 @@ class UserController extends Controller
     {
         $pages = 'ubur';
         $bur = User::all()->where('role_id', 3);
-        return view('root.user.list.root', compact('pages', 'bur'));
+        return view('root.user.list.bureau', compact('pages', 'bur'));
     }
 
     /**
@@ -48,7 +51,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $pages = 'uadd';
+        $roles = Role::all();
+        return view('root.user.crud.create', compact('pages', 'roles'));
     }
 
     /**

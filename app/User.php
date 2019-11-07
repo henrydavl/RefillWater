@@ -43,21 +43,21 @@ class User extends Authenticatable
     }
 
     public function isRoot(){
-        if ($this->role->name == 'Root' && $this->is_verified == 1 && $this->activation_token == null){
+        if ($this->role->name == 'Root' && $this->is_verified == 1 && $this->activation_token == null && $this->is_login = '1' && $this->is_active = '1'){
             return true;
         }
         return false;
     }
 
     public function isAdmin(){ // SC, SRB, AS, etc
-        if ($this->role->name == 'Admin' && $this->is_verified == 1 && $this->activation_token == null){
+        if ($this->role->name == 'Admin' && $this->is_verified == 1 && $this->activation_token == null && $this->is_login = '1' && $this->is_active = '1'){
             return true;
         }
         return false;
     }
 
     public function isBureau(){ // BAA, BMA, Library, etc
-        if ($this->role->name == 'Bureau' && $this->is_verified == 1 && $this->activation_token == null){
+        if ($this->role->name == 'Bureau' && $this->is_verified == 1 && $this->activation_token == null && $this->is_login = '1' && $this->is_active = '1'){
             return true;
         }
         return false;
