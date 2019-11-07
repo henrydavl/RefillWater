@@ -21,6 +21,11 @@
                 </div>
             </li>
             <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
+            <li class="nav-item" role="presentation">
+                <a class="btn btn-link nav-link @if($pages=='uadm' || $pages=='usc' || $pages=='ubur' || $pages=='uadd') active @endif"  aria-expanded="false" aria-controls="collapse-1" href="#user" role="button">
+                    <i class="fas fa-user-cog"></i><span>Water Level</span>
+                </a>
+            </li>
             <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'topUp' ? 'active' : ''}}" href="#"><i class="far fa-money-bill-alt"></i><span>Top-up</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'tic' ? 'active' : ''}}" href="#"><i class="fas fa-tasks"></i><span>Ticket</span></a></li>
         </ul>
