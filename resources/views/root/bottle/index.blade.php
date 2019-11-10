@@ -26,7 +26,14 @@
                                     <td>{{$bottle->capacity}}</td>
                                     <td>{{$bottle->price}}</td>
                                     <td>{{$bottle->user_id}}</td>
-                                    <td><form method="get" action="{{ url('/root/bottlecreate') }}"><button class="btn btn-warning btn-circle" type="submit"></button></form></td>
+                                    <td>
+                                        <form action="{{route('bottle.destroy', $bottle->id)}}" method="POST">
+                                                {{ csrf_field() }}
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button class="btn btn-danger btn-circle" title="Delete User" type="submit"><i class="fas fa-trash"></i>
+                                                </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

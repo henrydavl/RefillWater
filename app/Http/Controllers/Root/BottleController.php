@@ -27,7 +27,7 @@ class BottleController extends Controller
      */
     public function create()
     {
-        $pages = 'bottle';
+        $pages = 'bottlecreate';
         $bottle = Bottle::all();
         return view('root.bottle.crud.create', compact('bottle', 'pages'));
     }
@@ -40,7 +40,16 @@ class BottleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'capacity' => 'required',
+            'price' => 'required',
+        ]);
+
+        $data = new Bottle();
+        $data->capacity = $request->capacity;
+        $data->price = $request->price;
+        $data->save();
+        return redirect('root/bottle');
     }
 
     /**
@@ -85,6 +94,9 @@ class BottleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Bottle::find($id);
+        $post->delete();
+
+        return redirect('root/bottle');
     }
 }
