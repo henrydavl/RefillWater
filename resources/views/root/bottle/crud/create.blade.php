@@ -1,37 +1,31 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container-fluid">
+        <!-- Content Row -->
         @include('inc.alert')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h1 class="h4 mb-0 font-weight-bold text-primary">Create New Bottle</h1>
+                <h1 class="h4 mb-0 font-weight-bold text-primary">Add New User</h1>
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                  
-                        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
-                            <thead>
-                            <tr class="text-center">
-                                <th>Id</th>
-                                <th>Capacity</th>
-                                <th>Price</th>
-                                <th>User ID</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($bottle as $bottle)
-                                <tr class="text-center">
-                                    <td>{{$bottle->id}}</td>
-                                    <td>{{$bottle->capacity}}</td>
-                                    <td>{{$bottle->price}}</td>
-                                    <td>{{$bottle->user_id}}</td>
-                                    <td><button class="btn btn-warning btn-circle" title="create" type="submit" onclick="{{ url('/bottlecreate') }}"></td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                   
+            <div class="card body">
+                <div class="col-md-12" style="margin-top: 1em;">
+                    <form action="{{ route('bottle.store') }}" method="post">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label>Capacity</label>
+                            <input type="number" name="capacity" class="form-control" required placeholder="Enter Capacity (mL)">
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" name="price" class="form-control" required placeholder="Enter Price (Rp)">
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Create New Bottle</button>
+                            <button class="btn btn-danger" type="reset">Cancel</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

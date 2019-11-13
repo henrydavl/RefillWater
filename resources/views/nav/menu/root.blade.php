@@ -14,7 +14,19 @@
             </div>
         </div>
     </li>
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'bottle' ? 'active' : ''}}" href="{{ route('bottle.index') }}"><i class="fas fa-table"></i><span>Bottle Management</span></a></li>
+
+    <li class="nav-item" role="presentation">
+        <a class="btn btn-link nav-link @if($pages=='bottle' || $pages=='bottlecreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#bottle" role="button">
+            <i class="fas fa-user-cog"></i><span>Bottles Management</span>
+        </a>
+        <div class="collapse @if($pages=='bottle' || $pages=='bottlecreate') show @endif" id="bottle">
+            <div class="bg-white border rounded py-2 collapse-inner">
+                <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('bottle.index') }}">Bottles List</a>
+                <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('bottle.create') }}">Add New Bottle</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'topUp' ? 'active' : ''}}" href="#"><i class="far fa-money-bill-alt"></i><span>Top-up</span></a></li>
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'tic' ? 'active' : ''}}" href="#"><i class="fas fa-tasks"></i><span>Ticket</span></a></li>
