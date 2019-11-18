@@ -9,7 +9,7 @@
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
-                    <form action="{{ route('ad.store') }}" method="post">
+                    <form action="{{ route('ad.store') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Title</label>
@@ -22,9 +22,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Image Path</label>
+                            <label>Image</label>
                             <br>
-                            <input type='file' name='image_path' class="btn btn-primary"/>
+                            <input type='file' name='image' class="btn btn-primary"/>
                         </div>
 
                         <div class="form-group">

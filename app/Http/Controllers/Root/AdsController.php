@@ -46,16 +46,18 @@ class AdsController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'description' => 'required',
-            'image_path' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'start_date' => 'required',
             'end_date' => 'required',
             'price' => 'required',
         ]);
 
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
         $data = new Ad();
         $data->title = $request->title;
         $data->description = $request->description;
-        $data->image_path = $request->image_path;
+        $data->image_path = request()->image->move(public_path('images'), $imageName);
         $data->start_date = $request->start_date;
         $data->end_date = $request->end_date;
         $data->price = $request->price;
