@@ -105,9 +105,9 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Bottle::find($id);
+        $post = Ad::find($id);
         $post->delete();
 
-        return redirect('root/bottle');
+        return redirect('root/ad');
     }
 }

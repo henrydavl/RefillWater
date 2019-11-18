@@ -23,7 +23,8 @@
 
                         <div class="form-group">
                             <label>Image Path</label>
-                            <input type="text" name="image_path" class="form-control" required placeholder="Enter Image Path">
+                            <br>
+                            <input type='file' name='image_path' class="btn btn-primary"/>
                         </div>
 
                         <div class="form-group">
