@@ -26,13 +26,25 @@
                                     <td>{{$bottle->capacity}}</td>
                                     <td>{{$bottle->price}}</td>
                                     <td>{{$bottle->user_id}}</td>
-                                    <td>
-                                        <form action="{{route('bottle.destroy', $bottle->id)}}" method="POST">
-                                                {{ csrf_field() }}
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button class="btn btn-danger btn-circle" title="Delete User" type="submit"><i class="fas fa-trash"></i>
-                                                </button>
-                                        </form>
+                                    <td style="width: 150px;">
+                                    <div class="row no-gutters">
+                                        <div class="col md-6">
+                                            <form action="{{route('bottle.destroy', $bottle->id)}}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn btn-info btn-circle" title="Delete User" type="submit"><i class="fas fa-edit"></i>
+                                                    </button>
+                                            </form>
+                                        </div>
+                                        <div class="col md-6">
+                                            <form action="{{route('bottle.destroy', $bottle->id)}}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn btn-danger btn-circle" title="Delete User" type="submit"><i class="fas fa-trash"></i>
+                                                    </button>
+                                            </form>
+                                        </div>
+                                    </div>
                                     </td>
                                 </tr>
                             @endforeach

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Root;
 
-use App\Bottle;
+use App\Ad;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-class BottleController extends Controller
+class AdsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class BottleController extends Controller
      */
     public function index()
     {
-        $pages = 'bottle';
-        $bottles = Bottle::all();
-        return view('root.bottle.index', compact('bottles', 'pages'));
+        $pages = 'ads';
+        $ads = Ad::all();
+        return view('root.ad.index', compact('ads', 'pages'));
     }
 
     /**
@@ -30,9 +30,9 @@ class BottleController extends Controller
      */
     public function create()
     {
-        $pages = 'bottlecreate';
-        $bottle = Bottle::all();
-        return view('root.bottle.crud.create', compact('bottle', 'pages'));
+        $pages = 'adscreate';
+        $ads = Ad::all();
+        return view('root.ad.crud.create', compact('ads', 'pages'));
     }
 
     /**
@@ -43,19 +43,24 @@ class BottleController extends Controller
      */
     public function store(Request $request)
     {
-        $userid = Auth::id();
-
         $this->validate($request,[
-            'capacity' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image_path' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'price' => 'required',
         ]);
 
-        $data = new Bottle();
-        $data->capacity = $request->capacity;
+        $data = new Ad();
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->image_path = $request->image_path;
+        $data->start_date = $request->start_date;
+        $data->end_date = $request->end_date;
         $data->price = $request->price;
-        $data->user_id = $userid;
         $data->save();
-        return redirect('root/bottle');
+        return redirect('root/ad');
     }
 
     /**

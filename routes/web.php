@@ -23,6 +23,7 @@ Route::group(['middleware'=>'root'], function (){
     Route::get('root/user/activate', 'Root\UserController@activate')->name('user.activate');
     Route::post('root/user/activate', 'Root\UserController@activate');
 
+    Route::resource('root/ad', 'Root\AdsController');
     Route::resource('root/bottle', 'Root\BottleController');
     Route::resource('root/user', 'Root\UserController');
 });

@@ -21,8 +21,20 @@
         </a>
         <div class="collapse @if($pages=='bottle' || $pages=='bottlecreate') show @endif" id="bottle">
             <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('bottle.index') }}">Bottles List</a>
-                <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('bottle.create') }}">Add New Bottle</a>
+                <a class="collapse-item @if($pages=='bottle') active @endif" href="{{ route('bottle.index') }}">Bottles List</a>
+                <a class="collapse-item @if($pages=='bottlecreate') active @endif" href="{{ route('bottle.create') }}">Add New Bottle</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <a class="btn btn-link nav-link @if($pages=='ads' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
+            <i class="fas fa-user-cog"></i><span>Ads Management</span>
+        </a>
+        <div class="collapse @if($pages=='ads' || $pages=='adscreate') show @endif" id="ads">
+            <div class="bg-white border rounded py-2 collapse-inner">
+                <a class="collapse-item @if($pages=='ads') active @endif" href="{{ route('ad.index') }}">Advertisements List</a>
+                <a class="collapse-item @if($pages=='adscreate') active @endif" href="{{ route('ad.create') }}">Add New Advertisement</a>
             </div>
         </div>
     </li>
