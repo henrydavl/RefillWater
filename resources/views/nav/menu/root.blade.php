@@ -28,6 +28,18 @@
     </li>
 
     <li class="nav-item" role="presentation">
+        <a class="btn btn-link nav-link @if($pages=='TopUp' || $pages=='TopUpCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#topup" role="button">
+            <i class="fas fa-user-cog"></i><span>Top Up</span>
+        </a>
+        <div class="collapse @if($pages=='TopUp' || $pages=='TopUpCreate') show @endif" id="topup">
+            <div class="bg-white border rounded py-2 collapse-inner">
+                <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('topup.index') }}">Top Up List</a>
+                <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('topup.create') }}">Add New Top Up</a>
+            </div>
+        </div>
+    </li>
+    
+    <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='ads' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
             <i class="fas fa-user-cog"></i><span>Ads Management</span>
         </a>
