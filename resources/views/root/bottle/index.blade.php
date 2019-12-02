@@ -25,7 +25,7 @@
                                     <td>{{$bottle->id}}</td>
                                     <td>{{$bottle->capacity}}</td>
                                     <td>{{$bottle->price}}</td>
-                                    <td>{{$bottle->user_id}}</td>
+                                    <td>{{$bottle->user->name}}</td>
                                     <td style="width: 150px;">
                                     <div class="row no-gutters">
                                         <div class="col md-6">

@@ -11,6 +11,6 @@ class TopUp extends Model
     ];
 
     public function user() {
-        return $this->belongsTo('App\Ussr');
+        return $this->belongsTo('App\User');
     }
 }
