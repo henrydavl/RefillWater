@@ -27,18 +27,28 @@
                                 <tr class="text-center">
                                     <td>{{$ads->id}}</td>
                                     <td>{{$ads->title}}</td>
-                                    <td>{{$ads->description}}</td>
-                                    <td>{{$ads->image_path}}</td>
+                                    <td>{{$ads->description}}</td>                           
+                                    <td><img src="{{ asset('images/' . $ads->image_path) }}" height="50"></td>
                                     <td>{{$ads->start_date}}</td>
                                     <td>{{$ads->end_date}}</td>
                                     <td>{{$ads->price}}</td>
-                                    <td>
-                                        <form action="{{route('ad.destroy', $ads->id)}}" method="POST">
-                                                {{ csrf_field() }}
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button class="btn btn-danger btn-circle" title="Delete User" type="submit"><i class="fas fa-trash"></i>
-                                                </button>
-                                        </form>
+                                    <td style="width: 150px;">
+                                    <div class="row no-gutters">
+                                        <div class="col md-6">
+                                            <form action="{{route('ad.edit', $ads->id)}}">   
+                                                    <button class="btn btn-info btn-circle" title="Edit Ads"><i class="fas fa-edit"></i>
+                                                    </button>
+                                            </form>
+                                        </div>
+                                        <div class="col md-6">
+                                            <form action="{{route('ad.destroy', $ads->id)}}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn btn-danger btn-circle" title="Delete User" type="submit"><i class="fas fa-trash"></i>
+                                                    </button>
+                                            </form>
+                                        </div>
+                                    </div>
                                     </td>
                                 </tr>
                             @endforeach
