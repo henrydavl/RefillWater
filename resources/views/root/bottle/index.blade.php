@@ -29,10 +29,8 @@
                                     <td style="width: 150px;">
                                     <div class="row no-gutters">
                                         <div class="col md-6">
-                                            <form action="{{route('bottle.destroy', $bottle->id)}}" method="POST">
-                                                    {{ csrf_field() }}
-                                                    <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="btn btn-info btn-circle" title="Delete User" type="submit"><i class="fas fa-edit"></i>
+                                            <form action="{{route('bottle.edit', $bottle->id)}}">   
+                                                    <button class="btn btn-info btn-circle" title="Edit Bottle"><i class="fas fa-edit"></i>
                                                     </button>
                                             </form>
                                         </div>

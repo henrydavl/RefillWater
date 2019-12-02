@@ -32,7 +32,8 @@ class BottleController extends Controller
     {
         $pages = 'bottlecreate';
         $bottle = Bottle::all();
-        return view('root.bottle.crud.create', compact('bottle', 'pages'));
+        $users = User::all()->where('role_id','=', 4);
+        return view('root.bottle.crud.create', compact('users', 'pages'));
     }
 
     /**
@@ -43,17 +44,18 @@ class BottleController extends Controller
      */
     public function store(Request $request)
     {
-        $userid = Auth::id();
+        $userid = Auth::id();   
 
         $this->validate($request,[
             'capacity' => 'required',
             'price' => 'required',
+            'user' => 'required'
         ]);
 
         $data = new Bottle();
         $data->capacity = $request->capacity;
         $data->price = $request->price;
-        $data->user_id = $userid;
+        $data->user_id = $request->user;
         $data->save();
         return redirect('root/bottle');
     }
@@ -77,7 +79,9 @@ class BottleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = 'bottleedit';
+        $bottle = Bottle::find($id);
+        return view('root.bottle.crud.edit', compact('bottle', 'pages'));
     }
 
     /**
@@ -89,7 +93,16 @@ class BottleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'capacity' => 'required',
+            'price' => 'required',
+        ]);
+
+        $data = Bottle::find($id);
+        $data->capacity = $request->capacity;
+        $data->price = $request->price;
+        $data->save();
+        return redirect('root/bottle');
     }
 
     /**
