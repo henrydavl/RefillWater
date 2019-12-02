@@ -53,5 +53,17 @@
 
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'topUp' ? 'active' : ''}}" href="#"><i class="far fa-money-bill-alt"></i><span>Top-up</span></a></li>
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'tic' ? 'active' : ''}}" href="#"><i class="fas fa-tasks"></i><span>Ticket</span></a></li>
+    
+    <li class="nav-item" role="presentation">
+        <a class="btn btn-link nav-link @if($pages=='Ticket' || $pages=='TicketCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ticket" role="button">
+            <i class="fas fa-user-cog"></i><span>Ticket</span>
+        </a>
+        <div class="collapse @if($pages=='Ticket' || $pages=='TicketCreate') show @endif" id="ticket">
+            <div class="bg-white border rounded py-2 collapse-inner">
+                <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('ticket.index') }}">Ticket List</a>
+                <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('ticket.create') }}">Add New Ticket</a>
+            </div>
+        </div>
+    </li>
+
 </ul>

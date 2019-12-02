@@ -26,6 +26,7 @@ Route::group(['middleware'=>'root'], function (){
     Route::resource('root/ad', 'Root\AdsController');
     Route::resource('root/bottle', 'Root\BottleController');
     Route::resource('root/topup', 'Root\TopUpController');
+    Route::resource('root/ticket', 'Root\TicketController');
     Route::resource('root/user', 'Root\UserController');
 });
 
