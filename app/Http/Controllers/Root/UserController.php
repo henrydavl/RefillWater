@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Root;
 
+use App\Bottle;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -64,7 +65,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->back()->with('Success', 'Coming soon');
     }
 
     /**
@@ -86,7 +87,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = 'uedt';
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        return view('root.user.crud.edit', compact('pages', 'roles', 'user'));
     }
 
     /**
@@ -98,7 +102,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->back()->with('Success', 'Coming soon');
     }
 
     /**
@@ -109,7 +113,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $name = $user->name;
+        Bottle::where('user_id', $id)->delete();
+        $user->delete();
+        return redirect()->back()->with('Success', 'Deleted User '.$name);
     }
 
     public function deactivate(Request $request)

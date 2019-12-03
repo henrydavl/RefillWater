@@ -22,13 +22,11 @@
                         <div class="form-group">
                             <label>User</label>
                             <select class="form-control sel-user" name="user">
-                            @foreach($users as $user)
-                                <option value="{{ $user->id }}">{{$user->name}}</option>
-                            @endforeach
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{$user->name}}</option>
+                                @endforeach
                             </select>
                         </div>
-                        
-                        
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Create New Bottle</button>
                             <button class="btn btn-danger" type="reset">Cancel</button>
