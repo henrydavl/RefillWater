@@ -16,22 +16,22 @@
     </li>
 
     <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='bottle' || $pages=='bottlecreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#bottle" role="button">
-            <i class="fas fa-user-cog"></i><span>Bottles Management</span>
+        <a class="btn btn-link nav-link @if($pages=='bottle' || $pages=='bottlecreate' || $pages=='bottleedit') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#bottle" role="button">
+            <i class="fas fa-wine-bottle"></i><span>Bottles Management</span>
         </a>
-        <div class="collapse @if($pages=='bottle' || $pages=='bottlecreate') show @endif" id="bottle">
+        <div class="collapse @if($pages=='bottle' || $pages=='bottlecreate' || $pages=='bottleedit') show @endif" id="bottle">
             <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='bottle') active @endif" href="{{ route('bottle.index') }}">Bottles List</a>
+                <a class="collapse-item @if($pages=='bottle' || $pages=='bottleedit') active @endif" href="{{ route('bottle.index') }}">Bottles List</a>
                 <a class="collapse-item @if($pages=='bottlecreate') active @endif" href="{{ route('bottle.create') }}">Add New Bottle</a>
             </div>
         </div>
     </li>
 
     <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='TopUp' || $pages=='TopUpCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#topup" role="button">
-            <i class="fas fa-user-cog"></i><span>Top Up</span>
+        <a class="btn btn-link nav-link @if($pages=='topUp' || $pages=='TopUpCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#topup" role="button">
+            <i class="fas fa-money-bill-alt"></i><span>Top Up</span>
         </a>
-        <div class="collapse @if($pages=='TopUp' || $pages=='TopUpCreate') show @endif" id="topup">
+        <div class="collapse @if($pages=='topUp' || $pages=='TopUpCreate') show @endif" id="topup">
             <div class="bg-white border rounded py-2 collapse-inner">
                 <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('topup.index') }}">Top Up List</a>
                 <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('topup.create') }}">Add New Top Up</a>
@@ -41,7 +41,7 @@
     
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='ads' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
-            <i class="fas fa-user-cog"></i><span>Ads Management</span>
+            <i class="fas fa-ad"></i><span>Ads Management</span>
         </a>
         <div class="collapse @if($pages=='ads' || $pages=='adscreate') show @endif" id="ads">
             <div class="bg-white border rounded py-2 collapse-inner">
@@ -52,7 +52,6 @@
     </li>
 
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'topUp' ? 'active' : ''}}" href="#"><i class="far fa-money-bill-alt"></i><span>Top-up</span></a></li>
     
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='Ticket' || $pages=='TicketCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ticket" role="button">

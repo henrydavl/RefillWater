@@ -21,9 +21,9 @@
                         </div>
                         <div class="form-group">
                             <label>User</label>
-                            <select class="form-control" name="user">
+                            <select class="form-control sel-user" name="user">
                             @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{$user->name}}</option>
+                                <option value="{{ $user->id }}">{{$user->name}}</option>
                             @endforeach
                             </select>
                         </div>

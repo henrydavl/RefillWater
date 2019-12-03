@@ -23,7 +23,7 @@
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Edit Bottle</button>
-                            <button class="btn btn-danger" type="reset">Cancel</button>
+                            <a class="btn btn-danger" href="{{route('bottle.index')}}">Cancel</a>
                         </div>
                     </form>
                    

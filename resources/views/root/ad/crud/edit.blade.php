@@ -14,36 +14,29 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" name="title" class="form-control" required placeholder="{{$ads->title}}">
+                            <input type="text" name="title" class="form-control" value="{{$ads->title}}">
                         </div>
-
                         <div class="form-group">
                             <label>Description</label>
-                            <input type="text" name="description" class="form-control" required placeholder="{{$ads->description}}">
+                            <input type="text" name="description" class="form-control" value="{{$ads->description}}">
                         </div>
-
                         <div class="form-group">
                             <label>Image</label>
                             <br>
                             <input type='file' name='image' class="form-control"/>
                         </div>
-
                         <div class="form-group">
                             <label>Start Date</label>
-                            <input type="date" name="start_date" class="form-control" required placeholder="{{$ads->start_date}}">
+                            <input type="date" name="start_date" class="form-control" value="{{$ads->start_date}}">
                         </div>
-                        
                         <div class="form-group">
                             <label>End Date</label>
-                            <input type="date" name="end_date" class="form-control" required placeholder="{{$ads->end_date}}">
+                            <input type="date" name="end_date" class="form-control" value="{{$ads->end_date}}">
                         </div>
-
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="number" name="price" class="form-control" required placeholder="{{$ads->price}}">
+                            <input type="number" name="price" class="form-control" value="{{$ads->price}}">
                         </div>
-                        
-                        
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Edit Advertisement</button>
                             <button class="btn btn-danger" type="reset">Cancel</button>
