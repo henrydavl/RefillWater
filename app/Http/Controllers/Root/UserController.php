@@ -84,6 +84,13 @@ class UserController extends Controller
                         break;
                 }
             }
+        } else {
+            $user = $this->new($request->all());
+            if (empty($user)){
+                return redirect()->back()->with('Fail', 'Failed to add user');
+            } else {
+
+            }
         }
         return redirect()->back()->with('Success', 'Coming soon');
     }

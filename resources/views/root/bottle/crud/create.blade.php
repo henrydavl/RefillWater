@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label>User</label>
-                            <select class="form-control sel-user" name="user">
+                            <select class="custom-select sel-user" name="user">
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{$user->name}}</option>
                                 @endforeach

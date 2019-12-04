@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -67,6 +69,23 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'majors' => $data['majors'],
+            'role_id' => 4,
+            'activation_token' => Str::random(20),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        if (empty($user)) { // Failed to register user
+            redirect()->route('register'); // Wherever you want to redirect
+        }
+        //event
+        return redirect("/login")->with('Success','Registered, Please check your email to activate you account.')->with('email', $request->email);
     }
 }

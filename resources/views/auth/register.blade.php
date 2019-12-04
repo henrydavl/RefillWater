@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    @include('inc.alert')
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -58,6 +59,26 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Gender</label>
+
+                            <div class="col-md-6">
+                                <select name="gender" class="custom-select">
+                                    <option value="">Select Gender</option>
+                                    <option value="L">Male</option>
+                                    <option value="P">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Majors</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="majors" required>
                             </div>
                         </div>
 
