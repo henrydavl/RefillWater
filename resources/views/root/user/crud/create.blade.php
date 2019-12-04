@@ -31,7 +31,7 @@
                             <label>Gender</label>
                             <select name="gender" class="custom-select" required>
                                 <option value="L">Male</option>
-                                <option value="F">Female</option>
+                                <option value="P">Female</option>
                             </select>
                         </div>
                         <div class="form-group">

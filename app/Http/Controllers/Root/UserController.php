@@ -65,7 +65,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
+        if ($request->role_id != 4){
+            User::create($request->all());
+            switch ($request->role_id){
+                case 1:
+                    return redirect()->route('user.root')->with('Success', 'Added New Admin Root');
+                    break;
+                case 2:
+                    return redirect()->route('user.admin')->with('Success', 'Added New Admin Student Org.');
+                    break;
+                case 3:
+                    return redirect()->route('user.bureau')->with('Success', 'Added New Admin Bureau');
+                    break;
+            }
+        }
         return redirect()->back()->with('Success', 'Coming soon');
+    }
+
+    private function validateData($request){
+        return $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+
+        ]);
     }
 
     /**
