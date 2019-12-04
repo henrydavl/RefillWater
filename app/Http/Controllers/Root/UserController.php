@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -67,20 +68,38 @@ class UserController extends Controller
     {
         $this->validateData($request);
         if ($request->role_id != 4){
-            User::create($request->all());
-            switch ($request->role_id){
-                case 1:
-                    return redirect()->route('user.root')->with('Success', 'Added New Admin Root');
-                    break;
-                case 2:
-                    return redirect()->route('user.admin')->with('Success', 'Added New Admin Student Org.');
-                    break;
-                case 3:
-                    return redirect()->route('user.bureau')->with('Success', 'Added New Admin Bureau');
-                    break;
+            $user = $this->new($request->all());
+            if (empty($user)){
+                return redirect()->back()->with('Fail', 'Failed to add user');
+            } else {
+                switch ($request->role_id){
+                    case 1:
+                        return redirect()->route('user.root')->with('Success', 'Added New Admin Root');
+                        break;
+                    case 2:
+                        return redirect()->route('user.admin')->with('Success', 'Added New Admin Student Org.');
+                        break;
+                    case 3:
+                        return redirect()->route('user.bureau')->with('Success', 'Added New Admin Bureau');
+                        break;
+                }
             }
         }
         return redirect()->back()->with('Success', 'Coming soon');
+    }
+
+    protected function new(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'majors' => $data['majors'],
+            'role_id' => $data['role_id'],
+            'is_verified' => '1',
+            'is_active' => '1',
+        ]);
     }
 
     private function validateData($request){
@@ -88,7 +107,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
-
         ]);
     }
 
