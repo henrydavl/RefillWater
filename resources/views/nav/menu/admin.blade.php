@@ -26,21 +26,21 @@
         <a class="btn btn-link nav-link @if($pages=='tindex' || $pages=='tnew') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#topup" role="button">
             <i class="fas fa-money-bill-alt"></i><span>Top Up</span>
         </a>
-        <div class="collapse @if($pages=='topUp' || $pages=='TopUpCreate') show @endif" id="topup">
+        <div class="collapse @if($pages=='tindex' || $pages=='tnew') show @endif" id="topup">
             <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='tindex') active @endif" href="{{ route('advertisement.index') }}">Transaction History</a>
-                <a class="collapse-item @if($pages=='tnew') active @endif" href="{{ route('advertisement.create') }}">New Transaction</a>
+                <a class="collapse-item @if($pages=='tindex') active @endif" href="{{ route('top-up.index') }}">Transaction History</a>
+                <a class="collapse-item @if($pages=='tnew') active @endif" href="{{ route('top-up.create') }}">New Transaction</a>
             </div>
         </div>
     </li>
     <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='advlist' || $pages=='advnew' || $pages == 'advedit') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
+        <a class="btn btn-link nav-link @if($pages=='advlist' || $pages=='advnew') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
             <i class="fas fa-ad"></i><span>Ads Management</span>
         </a>
-        <div class="collapse @if($pages=='ads' || $pages=='adscreate' || $pages == 'advedit') show @endif" id="ads">
+        <div class="collapse @if($pages=='advlist' || $pages=='advnew') show @endif" id="ads">
             <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='advlist') active @endif" href="{{ route('ad.index') }}">Advertisements List</a>
-                <a class="collapse-item @if($pages=='advnew') active @endif" href="{{ route('ad.create') }}">New Advertisement</a>
+                <a class="collapse-item @if($pages=='advlist') active @endif" href="{{ route('advertisement.index') }}">Advertisements List</a>
+                <a class="collapse-item @if($pages=='advnew') active @endif" href="{{ route('advertisement.create') }}">New Advertisement</a>
             </div>
         </div>
     </li>

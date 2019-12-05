@@ -9,7 +9,7 @@
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
-                    <form action="{{ route('ad.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('advertisement.store') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Title</label>

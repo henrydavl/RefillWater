@@ -13,7 +13,7 @@ class CreateAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads', function (Blueprint $table) {
+        Schema::create('ads_images', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('image_path');
@@ -32,6 +32,6 @@ class CreateAdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ads');
+        Schema::dropIfExists('ads_images');
     }
 }

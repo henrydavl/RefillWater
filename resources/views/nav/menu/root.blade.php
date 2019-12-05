@@ -40,12 +40,12 @@
     </li>
     
     <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='ads' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
+        <a class="btn btn-link nav-link @if($pages=='ads_images' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
             <i class="fas fa-ad"></i><span>Ads Management</span>
         </a>
-        <div class="collapse @if($pages=='ads' || $pages=='adscreate') show @endif" id="ads">
+        <div class="collapse @if($pages=='ads_images' || $pages=='adscreate') show @endif" id="ads">
             <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='ads') active @endif" href="{{ route('ad.index') }}">Advertisements List</a>
+                <a class="collapse-item @if($pages=='ads_images') active @endif" href="{{ route('ad.index') }}">Advertisements List</a>
                 <a class="collapse-item @if($pages=='adscreate') active @endif" href="{{ route('ad.create') }}">New Advertisement</a>
             </div>
         </div>

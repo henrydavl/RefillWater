@@ -31,7 +31,6 @@ class BottleController extends Controller
     public function create()
     {
         $pages = 'bottlecreate';
-        $bottle = Bottle::all();
         $users = User::all()->where('role_id','=', 4);
         return view('root.bottle.crud.create', compact('users', 'pages'));
     }
@@ -44,8 +43,6 @@ class BottleController extends Controller
      */
     public function store(Request $request)
     {
-        $userid = Auth::id();   
-
         $this->validate($request,[
             'capacity' => 'required',
             'price' => 'required',
