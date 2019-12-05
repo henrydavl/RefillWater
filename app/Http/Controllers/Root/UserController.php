@@ -92,7 +92,7 @@ class UserController extends Controller
                 return redirect()->back()->with('Fail', 'Failed to add user');
             } else {
                 event(new ActivationEmail($user));
-                return redirect()->route('user.index')->with('Success', 'Added New User, Please tell them to verify their emails');
+                return redirect()->route('user.index')->with('Success', 'Added New User, Please tell them to verify their email');
             }
         }
         return redirect()->back()->with('Success', 'Coming soon');

@@ -11,6 +11,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/activate', 'Auth\ActivationController@activate')->name('activate');
+Route::get('/resend', 'Auth\ActivationController@showResendForm')->name('resend');
+Route::post('/resend', 'Auth\ActivationController@resend');
 
 Route::group(['middleware'=>'root'], function (){
     Route::get('root/dashboard', 'Root\PageController@dashboard')->name('root');
@@ -31,8 +33,21 @@ Route::group(['middleware'=>'root'], function (){
 
 Route::group(['middleware'=>'admin'], function (){
     Route::get('admin/dashboard', 'Admin\PageController@dashboard')->name('admin');
+    Route::get('Admin/users/deactivate', 'Admin\UsersController@deactivate')->name('users.deactivate');
+    Route::post('Admin/users/deactivate', 'Admin\UsersController@deactivate');
+    Route::get('Admin/users/activate', 'Admin\UsersController@activate')->name('users.activate');
+    Route::post('Admin/users/activate', 'Admin\UsersController@activate');
+
+    Route::resource('admin/advertisement', 'Admin\AdvController');
+    Route::resource('admin/users', 'Admin\UsersController');
+    Route::resource('admin/tickets', 'Admin\TicketsController');
+    Route::resource('admin/bottles', 'Admin\BottlesController');
+    Route::resource('admin/top-up', 'Admin\TopUpsController');
+    Route::resource('admin/transactions','Admin\TransController');
 });
 
 Route::group(['middleware'=>'bureau'], function (){
     Route::get('bureau/dashboard', 'Bureau\PageController@dashboard')->name('bureau');
+    Route::resource('bureau/my-tickets', 'Bureau\TicController');
+    Route::resource('bureau/rewards', 'Bureau\TopController');
 });
