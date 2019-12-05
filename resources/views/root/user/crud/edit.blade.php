@@ -9,7 +9,7 @@
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
-                    <form action="{{ route('user.store') }}" method="post">
+                    <form action="{{ route('user.update', $user->id) }}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="PATCH">
                         <div class="form-group">
@@ -36,19 +36,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>User Role</label>
-                            <select name="role_id" class="custom-select" required>
-                                @foreach($roles as $role)
-                                    <option value="{{$role->id}}" title="{{$role->description}}">{{$role->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="school">Majors / Department</label>
                             <input type="text" name="majors" class="form-control" value="{{$user->majors}}">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Create New User</button>
+                            <button class="btn btn-primary" type="submit">Update User</button>
                             @if($user->role_id == 1)
                                 <a class="btn btn-danger" href="{{route('user.root')}}">Cancel</a>
                             @elseif($user->role_id == 2)

@@ -10,6 +10,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/activate', 'Auth\ActivationController@activate')->name('activate');
 
 Route::group(['middleware'=>'root'], function (){
     Route::get('root/dashboard', 'Root\PageController@dashboard')->name('root');

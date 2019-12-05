@@ -11,8 +11,8 @@ class ActivationController extends Controller
 {
     public function activate(Request $request){
         $user = User::where('email', $request->email)->where('activation_token', $request->token)->firstOrFail();
-        $user->update(['active' => true, 'activation_token' => null]);
-        return redirect()->route('user')->with('Success', 'Account activated! You may log in to application.');
+        $user->update(['is_verified' => '1', 'is_active' => '1', 'activation_token' => null]);
+        return redirect()->route('login')->with('Success', 'Account activated! You may log in to application.');
     }
 
     public function showResendForm(){

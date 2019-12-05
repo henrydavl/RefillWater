@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\ActivationEmail;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -85,7 +86,7 @@ class RegisterController extends Controller
         if (empty($user)) { // Failed to register user
             redirect()->route('register'); // Wherever you want to redirect
         }
-        //event
+        event(new ActivationEmail($user));
         return redirect("/login")->with('Success','Registered, Please check your email to activate you account.')->with('email', $request->email);
     }
 }

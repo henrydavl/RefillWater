@@ -12,10 +12,13 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
-                                    <div class="text-center">
-                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
-                                    </div>
-                                    @include('inc.alert')
+                                    @if (session('Success'))
+                                        @include('inc.alert')
+                                        @else
+                                        <div class="text-center">
+                                            <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                        </div>
+                                    @endif
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
