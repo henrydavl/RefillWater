@@ -55,7 +55,7 @@
     
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='Ticket' || $pages=='TicketCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ticket" role="button">
-            <i class="fas fa-user-cog"></i><span>Ticket</span>
+            <i class="fas fa-ticket-alt"></i><span>Ticket</span>
         </a>
         <div class="collapse @if($pages=='Ticket' || $pages=='TicketCreate') show @endif" id="ticket">
             <div class="bg-white border rounded py-2 collapse-inner">

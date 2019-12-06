@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Bureau;
 
+use App\TopUp;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TopController extends Controller
 {
@@ -14,7 +17,10 @@ class TopController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'reward';
+        $topups = TopUp::all()->where('admin_id', Auth::id());
+        $users = User::all()->where('role_id', 4);
+        return view('bureau.reward.index', compact('pages', 'topups', 'users'));
     }
 
     /**
@@ -35,7 +41,14 @@ class TopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TopUp::create([
+            'user_id' => $request->user_id,
+            'amount' => $request->amount,
+            'admin_id' => Auth::id(),
+            'is_claimed' => '0',
+        ]);
+
+        return redirect()->back()->with('Success', 'Added new reward');
     }
 
     /**
@@ -80,6 +93,10 @@ class TopController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $top = TopUp::findOrFail($id);
+        $user = User::findOrFail($top->user_id);
+        $name = $user->name;
+        $top->delete();
+        return redirect()->back()->with('Success', 'Reward #'.$id.' to '.$name.' canceled');
     }
 }
