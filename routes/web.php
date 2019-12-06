@@ -26,6 +26,8 @@ Route::group(['middleware'=>'root'], function (){
     Route::resource('root/topup', 'Root\TopUpController');
     Route::resource('root/ticket', 'Root\TicketController');
     Route::resource('root/user', 'Root\UserController');
+    Route::resource('root/transaction', 'Root\TranController');
+    
 });
 
 Route::group(['middleware'=>'admin'], function (){
