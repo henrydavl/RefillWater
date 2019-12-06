@@ -13,4 +13,8 @@ class TopUp extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    public function admin(){
+        return $this->belongsTo('App\User', 'admin_id', 'id');
+    }
 }

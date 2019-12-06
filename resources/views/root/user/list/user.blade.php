@@ -29,7 +29,7 @@
                                     <td>{{$user->id}}</td>
                                     <td><a href="{{route('user.edit', $user->id)}}">{{ucwords($user->name)}}</a></td>
                                     <td>{{$user->email}}</td>
-                                    <td>@if($user->gander == 'L') <p class="text-info">Male</p> @else <p class="text-danger">Female</p> @endif </td>
+                                    <td>@if($user->gender == 'L') <p class="text-info">Male</p> @else <p class="text-danger">Female</p> @endif </td>
                                     <td>{{ $user->majors }}</td>
                                     <td>{{ $user->balance }} points</td>
                                     <td>@if($user->is_login == '1') <p class="text-success">Logged in</p> @else <p>Logged Out</p> @endif </td>

@@ -1,8 +1,12 @@
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
     <div class="container-fluid">
         <ul class="nav navbar-nav flex-nowrap ml-auto">
-            @include('nav.notif.alert')
-            @include('nav.notif.inbox')
+            @if(\Illuminate\Support\Facades\Auth::user()->isBureau())
+
+            @else
+                @include('nav.notif.alert')
+                @include('nav.notif.inbox')
+            @endif
             <div class="d-none d-sm-block topbar-divider"></div>
             <li class="nav-item dropdown no-arrow" role="presentation">
                 <div class="nav-item dropdown no-arrow">

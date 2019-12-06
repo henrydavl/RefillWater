@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    @include('inc.alert')
+{{--                    @include('inc.alert')--}}
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

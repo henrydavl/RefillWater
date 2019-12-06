@@ -18,7 +18,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        $pages = 'ads';
+        $pages = 'ads_images';
         $ads = Ad::all();
         return view('root.ad.index', compact('ads', 'pages'));
     }
@@ -52,18 +52,21 @@ class AdsController extends Controller
             'price' => 'required',
         ]);
 
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images'), $imageName);
+        $file = $request->file('image');
+        $tmp = str_replace(" ", "-",$request->title);
+        $type = $file->getClientOriginalExtension();
+        $name = $tmp."_adsImage.".$type;
+        $file->storeAs('public/image/', $name);
 
         $data = new Ad();
         $data->title = $request->title;
         $data->description = $request->description;
-        $data->image_path = $imageName;
+        $data->image_path = $name;
         $data->start_date = $request->start_date;
         $data->end_date = $request->end_date;
         $data->price = $request->price;
         $data->save();
-        return redirect('root/ad');
+        return redirect('root/ad')->with('Success', 'Added new advertisement');
     }
 
     /**
@@ -99,27 +102,26 @@ class AdsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'price' => 'required',
+        $this->validateImageUpdate();
+        $input = $request->all();
+        $ads = Ad::findOrFail($id);
+        if ($file = $request->file('image')){
+            $tmp = str_replace(" ", "-",$request->title);
+            $type = $file->getClientOriginalExtension();
+            $name = $tmp."_adsImage.".$type;
+            $file->storeAs('public/image/', $name);
+            $input['image_path'] = $name;
+        }
+        $ads->update($input);
+
+        return redirect('root/ad')->with('Success', 'Ads #'.$ads->title.' updated');
+    }
+
+    private function validateImageUpdate()
+    {
+        return request()->validate([
+            'qr_code' => 'sometimes|image|max:5000',
         ]);
-
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images'), $imageName);
-
-        $data = Ad::Find($id);
-        $data->title = $request->title;
-        $data->description = $request->description;
-        $data->image_path = $imageName;
-        $data->start_date = $request->start_date;
-        $data->end_date = $request->end_date;
-        $data->price = $request->price;
-        $data->save();
-        return redirect('root/ad');
     }
 
     /**
@@ -131,8 +133,9 @@ class AdsController extends Controller
     public function destroy($id)
     {
         $post = Ad::find($id);
+        $name = $post->title;
         $post->delete();
 
-        return redirect('root/ad');
+        return redirect('root/ad')->with('Success', 'Ads #'.$name.' deleted');
     }
 }

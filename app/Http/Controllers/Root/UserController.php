@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Root;
 
 use App\Bottle;
+use App\Events\ActivationEmail;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -85,14 +87,28 @@ class UserController extends Controller
                 }
             }
         } else {
-            $user = $this->new($request->all());
+            $user = $this->newUser($request->all());
             if (empty($user)){
                 return redirect()->back()->with('Fail', 'Failed to add user');
             } else {
-
+                event(new ActivationEmail($user));
+                return redirect()->route('user.index')->with('Success', 'Added New User, Please tell them to verify their email');
             }
         }
         return redirect()->back()->with('Success', 'Coming soon');
+    }
+
+    protected function newUser(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'majors' => $data['majors'],
+            'role_id' => $data['role_id'],
+            'activation_token' => Str::random(20),
+        ]);
     }
 
     protected function new(array $data)
@@ -138,8 +154,7 @@ class UserController extends Controller
     {
         $pages = 'uedt';
         $user = User::findOrFail($id);
-        $roles = Role::all();
-        return view('root.user.crud.edit', compact('pages', 'roles', 'user'));
+        return view('root.user.crud.edit', compact('pages', 'user'));
     }
 
     /**
@@ -151,7 +166,29 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->back()->with('Success', 'Coming soon');
+        $user = User::findOrFail($id);
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+            $input['password'] = Hash::make($request->password);
+        }
+        $user->update($input);
+        switch ($user->role_id){
+            case 1:
+                return redirect()->route('user.root')->with('Success', 'Updated Admin Root '. $user->name);
+                break;
+            case 2:
+                return redirect()->route('user.admin')->with('Success', 'Updated Admin Student Org. ' . $user->name);
+                break;
+            case 3:
+                return redirect()->route('user.bureau')->with('Success', 'Updated  Admin Bureau ' . $user->name);
+                break;
+            case 4:
+                return redirect()->route('user.index')->with('Success', 'Updated user ' . $user->name);
+                break;
+        }
+        return redirect()->back()->with('Fail', 'Failed to Update user '. $user->name);
     }
 
     /**

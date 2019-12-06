@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+    <link rel="stylesheet" href="{{asset('assets/datatables/dataTables.bootstrap4.min.css')}}">
 </head>
 
 <body id="page-top">
@@ -32,9 +33,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="{{asset('assets/js/theme.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="{{asset('assets/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function() {
-            $(".sel-user").select2();
+            $('.sel-user').select2();
+            $('#table').DataTable();
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#imgEdit').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imgNew").change(function() {
+            readURL(this);
         });
     </script>
 </body>
