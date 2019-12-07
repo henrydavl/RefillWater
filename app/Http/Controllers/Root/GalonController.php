@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Root;
 
-use App\Transaction;
+use App\Galon;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-class TranController extends Controller
+class GalonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class TranController extends Controller
      */
     public function index()
     {
-        $pages = 'transaction';
-        $transaction = Transaction::all(); 
-        return view('root.transaction.index', compact('transaction','pages'));  
+        $pages = 'gallons';
+        $gallons = Gallons::all();
+        return view('root.galon.index', compact('galon', 'pages'));
     }
 
     /**
@@ -30,9 +30,9 @@ class TranController extends Controller
      */
     public function create()
     {
-        $pages = 'trancreate';
+        $pages = 'gallonscreate';
         $users = User::all()->where('role_id','=', 4);
-        return view('root.transaction.crud.create', compact('users', 'pages'));
+        return view('root.galon.crud.create', compact('users', 'pages'));
     }
 
     /**
@@ -44,19 +44,17 @@ class TranController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'bottle' => 'required',
-            'galon' => 'required',
-            'user' => 'required',
-            'id' => 'required'
+            'id' => 'required',
+            'current_ml' => 'required',
+            'description' => 'required'
         ]);
 
-        $data = new transaction();
-        $data->bottle= $request->bottle;
-        $data->galon = $request->galon;
-        $data->user_id = $request->user;
+        $data = new gallon();
         $data->id = $request->id;
+        $data->current_ml = $request->current_ml;
+        $data->description = $request->description;
         $data->save();
-        return redirect('root/transaction');
+        return redirect('root/galon');
     }
 
     /**
@@ -78,9 +76,9 @@ class TranController extends Controller
      */
     public function edit($id)
     {
-        $pages = 'tranedit';
-        $transactions = transaction::find($id);
-        return view('root.transaction.crud.edit', compact('transaction', 'pages'));
+        $pages = 'gallonsedit';
+        $gallons = gallons::find($id);
+        return view('root.galon.crud.edit', compact('galon', 'pages'));
     }
 
     /**
@@ -92,16 +90,16 @@ class TranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $this->validate($request,[
-        //     'capacity' => 'required',
-        //     'price' => 'required',
-        // ]);
+        $this->validate($request,[
+            'current_ml' => 'required',
+            'description' => 'required',
+        ]);
 
-        // $data = Bottle::find($id);
-        // $data->capacity = $request->capacity;
-        // $data->price = $request->price;
-        // $data->save();
-        // return redirect('root/bottle');
+        $data = gallons::find($id);
+        $data->current_ml = $request->current_ml;
+        $data->description = $request->description;
+        $data->save();
+        return redirect('root/galon');
     }
 
     /**
@@ -112,9 +110,9 @@ class TranController extends Controller
      */
     public function destroy($id)
     {
-        $post = transaction::find($id);
+        $post = gallons::find($id);
         $post->delete();
 
-        return redirect('root/transaction');
+        return redirect('root/galon');
     }
 }

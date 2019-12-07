@@ -51,8 +51,20 @@
         </div>
     </li>
 
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link ($pages == 'trans' ? 'active' : '') " href="#transaction"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
     
+    <li class="nav-item" role="presentation">
+        <a class="btn btn-link nav-link @if($pages=='gallons' || $pages=='gallonscreate' || $pages=='gallonsedit') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#gallons" role="button">
+            <i class="fas fa-wine-bottle"></i><span>Gallons Management</span>
+        </a>
+        <div class="collapse @if($pages=='gallons' || $pages=='gallonscreate' || $pages=='gallonsedit') show @endif" id="gallons">
+            <div class="bg-white border rounded py-2 collapse-inner">
+                <a class="collapse-item @if($pages=='gallons') active @endif" href="{{ route('galon.index') }}">Gallons List</a>
+                <a class="collapse-item @if($pages=='gallonscreate') active @endif" href="{{ route('galon.create') }}">Add New Gallons</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='Ticket' || $pages=='TicketCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ticket" role="button">
             <i class="fas fa-ticket-alt"></i><span>Ticket</span>

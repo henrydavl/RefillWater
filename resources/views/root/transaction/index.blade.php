@@ -4,7 +4,7 @@
         @include('inc.alert')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h1 class="h4 mb-0 font-weight-bold text-primary">Bottle Management</h1>
+                <h1 class="h4 mb-0 font-weight-bold text-primary">Transaction Management</h1>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
