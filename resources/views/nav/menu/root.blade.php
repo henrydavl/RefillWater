@@ -41,7 +41,7 @@
     
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='ads_images' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
-            <i class="fas fa-ad"></i><span>Ads Management</span>
+            <i class="fas fa-ad"></i><span>Advertisements</span>
         </a>
         <div class="collapse @if($pages=='ads_images' || $pages=='adscreate') show @endif" id="ads">
             <div class="bg-white border rounded py-2 collapse-inner">
@@ -51,30 +51,8 @@
         </div>
     </li>
 
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}} " href="{{ route('transaction.index') }}t"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
-    
-    <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='gallons' || $pages=='gallonscreate' || $pages=='gallonsedit') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#gallons" role="button">
-            <i class="fas fa-wine-bottle"></i><span>Gallons Management</span>
-        </a>
-        <div class="collapse @if($pages=='gallons' || $pages=='gallonscreate' || $pages=='gallonsedit') show @endif" id="gallons">
-            <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='gallons') active @endif" href="{{ route('galon.index') }}">Gallons List</a>
-                <a class="collapse-item @if($pages=='gallonscreate') active @endif" href="{{ route('galon.create') }}">Add New Gallons</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='Ticket' || $pages=='TicketCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ticket" role="button">
-            <i class="fas fa-ticket-alt"></i><span>Ticket</span>
-        </a>
-        <div class="collapse @if($pages=='Ticket' || $pages=='TicketCreate') show @endif" id="ticket">
-            <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('ticket.index') }}">Ticket List</a>
-                <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('ticket.create') }}">Add New Ticket</a>
-            </div>
-        </div>
-    </li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}} " href="{{ route('transaction.index') }}"><i class="fas fa-receipt"></i><span>Transaction</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'gallons' ? 'active' : ''}} " href="{{ route('galon.index') }}"><i class="fas fa-water"></i><span>Water Level</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'ticket' ? 'active' : ''}} " href="{{ route('ticket.index') }}"><i class="fas fa-ticket-alt"></i><span>Tickets</span></a></li>
 
 </ul>

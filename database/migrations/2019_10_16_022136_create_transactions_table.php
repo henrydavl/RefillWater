@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->bigInteger('bottle_id');
-            $table->bigInteger('gallon_id');
+            $table->string('gallon_id', 5);
             $table->enum('is_auto', ['0','1'])->default('0');
             $table->timestamps();
         });

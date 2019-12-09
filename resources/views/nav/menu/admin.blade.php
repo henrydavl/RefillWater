@@ -45,6 +45,7 @@
         </div>
     </li>
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Refill Management</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'gallons' ? 'active' : ''}} " href="#"><i class="fas fa-water"></i><span>Water Level</span></a></li>
 
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='ticket' || $pages=='newtic' || $pages=='edttic') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ticket" role="button">

@@ -18,7 +18,7 @@ class TranController extends Controller
      */
     public function index()
     {
-        $pages = 'transaction';
+        $pages = 'trans';
         $transaction = Transaction::all(); 
         return view('root.transaction.index', compact('transaction','pages'));  
     }
@@ -115,6 +115,6 @@ class TranController extends Controller
         $post = transaction::find($id);
         $post->delete();
 
-        return redirect('root/transaction');
+        return redirect()->back()->with('Success', 'Deleted a transaction records');
     }
 }

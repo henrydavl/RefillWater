@@ -40,7 +40,7 @@
                                         <div class="row no-gutters">
                                             @if($ticket->is_done == '0')
                                                 <div class="col-md-6">
-                                                    <button class="btn btn-info btn-circle" title="Edit Game" type="button" data-toggle="modal"
+                                                    <button class="btn btn-info btn-circle" title="Edit" type="button" data-toggle="modal"
                                                             data-target="#editModal-{{$ticket->id}}"><i class="fas fa-edit"></i></button>
                                                     @include('admin.ticket.crud.editTicket')
                                                 </div>
@@ -53,7 +53,7 @@
                                                 </div>
                                             @else
                                                 <div class="col-md-12">
-                                                    <button class="btn btn-info btn-circle" title="Edit Game" type="button" data-toggle="modal"
+                                                    <button class="btn btn-info btn-circle" title="Detail" type="button" data-toggle="modal"
                                                             data-target="#showModal-{{$ticket->id}}"><i class="fas fa-search"></i></button>
                                                     @include('admin.ticket.crud.showTicket')
                                                 </div>

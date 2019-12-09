@@ -4,7 +4,7 @@
         @include('inc.alert')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h1 class="h4 mb-0 font-weight-bold text-primary">Transaction Management</h1>
+                <h1 class="h4 mb-0 font-weight-bold text-primary">Transaction History</h1>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -14,18 +14,21 @@
                             <tr class="text-center">
                                 <th>Id</th>
                                 <th>User</th>
-                                <th>Bottle </th>
-                                <th>Galon</th>   
+                                <th>Bottle (ml)</th>
+                                <th>Price</th>
+                                <th>Gallon Location</th>
+                                <th>Payment Method</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($transaction as $tran)
                                 <tr class="text-center">
                                     <td>{{$tran->id}}</td>
-                                    <td>{{$tran->capacity}}</td>
-                                    <td>{{$tran->price}}</td>
                                     <td>{{$tran->user->name}}</td>
-                                    <td style="width: 150px;">
+                                    <td>{{$tran->bottle->capacity}}</td>
+                                    <td>{{$tran->bottle->price}}</td>
+                                    <td>{{$tran->gallon->description}}</td>
+                                    <td><b>{{$tran->is_auto == '1' ? 'Application' : 'Manual'}}</b></td>
                                 </tr>
                             @endforeach
                             </tbody>
