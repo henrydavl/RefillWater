@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Root;
 
-use App\Galon;
+use App\Gallon;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -19,8 +19,8 @@ class GalonController extends Controller
     public function index()
     {
         $pages = 'gallons';
-        $gallons = Gallons::all();
-        return view('root.galon.index', compact('galon', 'pages'));
+        $gallons = Gallon::all();
+        return view('root.galon.index', compact( 'pages', 'gallons'));
     }
 
     /**
@@ -49,7 +49,7 @@ class GalonController extends Controller
             'description' => 'required'
         ]);
 
-        $data = new gallon();
+        $data = new Gallon();
         $data->id = $request->id;
         $data->current_ml = $request->current_ml;
         $data->description = $request->description;
@@ -77,7 +77,7 @@ class GalonController extends Controller
     public function edit($id)
     {
         $pages = 'gallonsedit';
-        $gallons = gallons::find($id);
+        $gallons = Gallon::find($id);
         return view('root.galon.crud.edit', compact('galon', 'pages'));
     }
 
@@ -95,7 +95,7 @@ class GalonController extends Controller
             'description' => 'required',
         ]);
 
-        $data = gallons::find($id);
+        $data = Gallon::find($id);
         $data->current_ml = $request->current_ml;
         $data->description = $request->description;
         $data->save();
@@ -110,7 +110,7 @@ class GalonController extends Controller
      */
     public function destroy($id)
     {
-        $post = gallons::find($id);
+        $post = Gallon::find($id);
         $post->delete();
 
         return redirect('root/galon');

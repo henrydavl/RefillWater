@@ -51,7 +51,7 @@
         </div>
     </li>
 
-    <li class="nav-item" role="presentation"><a class="nav-link ($pages == 'trans' ? 'active' : '') " href="#transaction"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}} " href="{{ route('transaction.index') }}t"><i class="fas fa-table"></i><span>Transaction Management</span></a></li>
     
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='gallons' || $pages=='gallonscreate' || $pages=='gallonsedit') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#gallons" role="button">
