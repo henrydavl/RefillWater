@@ -26,11 +26,11 @@ Route::group(['middleware'=>'root'], function (){
 
     Route::resource('root/ad', 'Root\AdsController');
     Route::resource('root/bottle', 'Root\BottleController');
-    Route::resource('root/topup', 'Root\TopUpController');
+    Route::resource('root/topup', 'Root\TopUpController')->only('index');
     Route::resource('root/ticket', 'Root\TicketController');
     Route::resource('root/user', 'Root\UserController');
-    Route::resource('root/transaction', 'Root\TranController');
-    Route::resource('root/galon', 'Root\GalonController');
+    Route::resource('root/transaction', 'Root\TranController')->only('index');
+    Route::resource('root/galon', 'Root\GalonController')->only('index');
     
 });
 
@@ -47,6 +47,7 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('admin/bottles', 'Admin\BottlesController');
     Route::resource('admin/top-up', 'Admin\TopUpsController');
     Route::resource('admin/transactions','Admin\TransController');
+    Route::resource('admin/gallon', 'Admin\GallonController');
 });
 
 Route::group(['middleware'=>'bureau'], function (){

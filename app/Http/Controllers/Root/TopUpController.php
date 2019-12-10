@@ -29,9 +29,7 @@ class TopUpController extends Controller
      */
     public function create()
     {
-        $pages = 'TopUpCreate';
-        $topups = TopUp::all();
-        return view('root.topUp.crud.create', compact('topups', 'pages'));
+
     }
 
     /**
@@ -42,18 +40,7 @@ class TopUpController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'amount' => 'required',
-            'user_id' => 'required',
-            'admin_id' => 'required'
-        ]);
 
-        $data = new TopUp();
-        $data->amount = $request->amount;
-        $data->user_id = $request->user_id;
-        $data->admin_id = $request->admin_id;
-        $data->save();
-        return redirect('root/topup');
     }
 
     /**
@@ -98,9 +85,6 @@ class TopUpController extends Controller
      */
     public function destroy($id)
     {
-        $post = TopUp::find($id);
-        $post->delete();
 
-        return redirect('root/topup');
     }
 }

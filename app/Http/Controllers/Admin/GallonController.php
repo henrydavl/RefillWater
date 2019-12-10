@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Root;
+namespace App\Http\Controllers\Admin;
 
 use App\Gallon;
-use App\User;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-class GalonController extends Controller
+class GallonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +17,7 @@ class GalonController extends Controller
     {
         $pages = 'gallon';
         $gallons = Gallon::all();
-        return view('root.galon.index', compact( 'pages', 'gallons'));
+        return view('admin.gallon.index', compact('pages', 'gallons'));
     }
 
     /**
@@ -30,18 +27,31 @@ class GalonController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
+        $gallon = Gallon::create($request->all());
+        if (empty($gallon)){
+            return redirect()->back()->with('Fail', 'Failed to add gallon');
+        } else {
+            return redirect()->back()->with('Success', 'Added new Gallon '.$request->id);
+        }
+    }
 
+    private function validateData($request)
+    {
+        return $request->validate([
+            'id' => 'required|unique:gallons',
+        ]);
     }
 
     /**
@@ -63,7 +73,7 @@ class GalonController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -76,6 +86,7 @@ class GalonController extends Controller
     public function update(Request $request, $id)
     {
 
+        $g = Gallon::findOrFail($id);
     }
 
     /**
@@ -86,6 +97,8 @@ class GalonController extends Controller
      */
     public function destroy($id)
     {
-
+        $g = Gallon::findOrFail($id);
+        $g->delete();
+        return redirect()->back()->with('Success', 'Deleted Gallon #'.$id);
     }
 }

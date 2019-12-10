@@ -6,16 +6,17 @@
             <h6 class="dropdown-header">pending tickets</h6>
             @if(count($tickets) > 0)
                 @foreach($tickets as $ticket)
-                    <a class="d-flex align-items-center dropdown-item" href="#">
+                    <a class="d-flex align-items-center dropdown-item" href="{{ route('ticket.index') }}">
                         <div class="font-weight-bold">
                             <div class="text-truncate"><span>{{$ticket->title}}</span></div>
                             <p class="small text-gray-500 mb-0">{{$ticket->description}}</p>
+                            <p class="small text-gray-500 mb-0">From : {{$ticket->submitter->name . ' ('.$ticket->submitter->role->name.')'}}</p>
                         </div>
                     </a>
                 @endforeach
             @else
                 <a class="d-flex align-items-center dropdown-item" href="#">
-                    <p class="mt-3">Nothing new tickets</p>
+                    <p class="mt-3">No new tickets</p>
                 </a>
             @endif
         </div>

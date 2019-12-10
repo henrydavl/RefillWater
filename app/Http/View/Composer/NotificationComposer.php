@@ -13,7 +13,7 @@ class NotificationComposer
 {
     public function compose(View $view)
     {
-        $view->with('tickets', Ticket::all()->where('submitted_by', Auth::id())->where('is_done', '=', '0'))
+        $view->with('tickets', Ticket::all()->where('is_done', '=', '0'))
             ->with('empty_gallons', Gallon::all()->where('is_empty', '1'));
     }
 }

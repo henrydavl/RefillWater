@@ -25,14 +25,16 @@
                                 <tr class="text-center">
                                     <td>{{$topup->id }}</td>
                                     <td>{{$topup->user->name}}</td>
-                                    <td>{{$topup->amount}}</td>
+                                    <td>{{$topup->amount .' pts'}}</td>
                                     <td>{{$topup->admin->name}}</td>
                                     <td>{{$topup->is_claimed == '1' ? 'Claimed' : 'Pending'}}</td>
                                     <td>
                                         <form action="{{route('top-up.destroy', $topup->id)}}" method="POST">
                                                 {{ csrf_field() }}
                                                 <input name="_method" type="hidden" value="DELETE">
-                                                <button class="btn btn-danger btn-circle" title="Delete User" type="submit"><i class="fas fa-trash"></i></button>
+                                                <button class="btn btn-danger btn-circle" title="Delete User" type="submit" {{$topup->is_claimed == '1' ? 'disabled' : ''}}>
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
                                         </form>
                                     </td>
                                 </tr>

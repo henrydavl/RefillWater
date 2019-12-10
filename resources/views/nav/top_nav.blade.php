@@ -5,7 +5,9 @@
 
             @else
                 @include('nav.notif.alert')
-                @include('nav.notif.inbox')
+                @if(\Illuminate\Support\Facades\Auth::user()->isRoot())
+                    @include('nav.notif.inbox')
+                @endif
             @endif
             <div class="d-none d-sm-block topbar-divider"></div>
             <li class="nav-item dropdown no-arrow" role="presentation">

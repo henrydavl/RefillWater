@@ -27,17 +27,7 @@
         </div>
     </li>
 
-    <li class="nav-item" role="presentation">
-        <a class="btn btn-link nav-link @if($pages=='topUp' || $pages=='TopUpCreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#topup" role="button">
-            <i class="fas fa-money-bill-alt"></i><span>Top Up</span>
-        </a>
-        <div class="collapse @if($pages=='topUp' || $pages=='TopUpCreate') show @endif" id="topup">
-            <div class="bg-white border rounded py-2 collapse-inner">
-                <a class="collapse-item @if($pages=='uadm') active @endif" href="{{ route('topup.index') }}">Top Up List</a>
-                <a class="collapse-item @if($pages=='usc') active @endif" href="{{ route('topup.create') }}">Add New Top Up</a>
-            </div>
-        </div>
-    </li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'topUp' ? 'active' : ''}} " href="{{ route('topup.index') }}"><i class="fas fa-money-bill-alt"></i><span>Top Up</span></a></li>
     
     <li class="nav-item" role="presentation">
         <a class="btn btn-link nav-link @if($pages=='ads_images' || $pages=='adscreate') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#ads" role="button">
@@ -52,7 +42,7 @@
     </li>
 
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}} " href="{{ route('transaction.index') }}"><i class="fas fa-receipt"></i><span>Transaction</span></a></li>
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'gallons' ? 'active' : ''}} " href="{{ route('galon.index') }}"><i class="fas fa-water"></i><span>Water Level</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'gallon' ? 'active' : ''}} " href="{{ route('galon.index') }}"><i class="fas fa-water"></i><span>Water Level</span></a></li>
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'ticket' ? 'active' : ''}} " href="{{ route('ticket.index') }}"><i class="fas fa-ticket-alt"></i><span>Tickets</span></a></li>
 
 </ul>
