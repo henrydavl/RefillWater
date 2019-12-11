@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\TicketResources;
 use App\Ticket;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,12 +13,12 @@ class TicketController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+//     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $ticket = Ticket::all()->where('user_id', Auth::id());
-//        return TicketResources::col
+        $ticket = Ticket::all()->where('submitted_by', Auth::id());
+        return TicketResources::collection($ticket);
     }
 
     /**
