@@ -31,7 +31,7 @@
                         <tr class="text-center">
                             <td>{{$gallon->id }}</td>
                             <td>{{$gallon->default_ml ? $gallon->default_ml .' (ml)' : '-'}}</td>
-                            <td>{{$gallon->current_ml ? $$gallon->current_ml .' (ml)' : '-'}}</td>
+                            <td>{{$gallon->current_ml ? $gallon->current_ml .' (ml)' : '-'}}</td>
                             <td>{{$gallon->description}}</td>
                             <td>{{$gallon->is_empty == 1 ? 'Empty' : 'Available' }}</td>
                             <td>{{$gallon->nRefill .' times'}}</td>
