@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Bottle;
+use App\Http\Resources\BottleResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -64,6 +67,7 @@ class UserController extends Controller
 
     public function getMyBottle()
     {
-
+        $bottles = Bottle::all()->where('user_id', Auth::id());
+        return BottleResource::collection($bottles);
     }
 }

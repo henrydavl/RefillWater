@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Ticket;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -14,7 +16,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-
+        $ticket = Ticket::all()->where('user_id', Auth::id());
+//        return TicketResources::col
     }
 
     /**
