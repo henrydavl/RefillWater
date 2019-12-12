@@ -14,6 +14,10 @@ class BottleResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'capacity' => $this->capacity,
+            'price' => $this->price,
+        ];
     }
 }

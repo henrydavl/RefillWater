@@ -14,6 +14,10 @@ class TopUpResources extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'topUp_by' => $this->admin->name,
+            'amount' => $this->amount,
+            'status' => $this->is_claimed == 1 ? 'Success' : 'Pending',
+        ];
     }
 }
