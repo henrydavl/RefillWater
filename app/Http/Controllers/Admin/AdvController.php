@@ -46,7 +46,7 @@ class AdvController extends Controller
             $tmp = str_replace(" ", "-",$request->title);
             $type = $file->getClientOriginalExtension();
             $name = $tmp."_adsImage.".$type;
-            $file->storeAs('public/image/', $name);
+            $file->move('images/', $name);
             $input['image_path'] = $name;
         }
         Ad::create($input);
@@ -98,7 +98,7 @@ class AdvController extends Controller
             $tmp = str_replace(" ", "-",$request->title);
             $type = $file->getClientOriginalExtension();
             $name = $tmp."_adsImage.".$type;
-            $file->storeAs('public/image/', $name);
+            $file->move('images/', $name);
             $input['image_path'] = $name;
         }
         $ads->update($input);

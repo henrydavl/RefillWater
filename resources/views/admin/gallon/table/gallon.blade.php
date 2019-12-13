@@ -23,6 +23,7 @@
                         <th>Location</th>
                         <th>Status</th>
                         <th>Refilled</th>
+                        <th>Device Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -35,6 +36,7 @@
                             <td>{{$gallon->description}}</td>
                             <td>{{$gallon->is_empty == 1 ? 'Empty' : 'Available' }}</td>
                             <td>{{$gallon->nRefill .' times'}}</td>
+                            <td>@if($gallon->is_on == '1')<p class="text-warning">Processing ({{$gallon->current_request}})</p>@else<p class="text-success">Idle</p>@endif</td>
                             <td style="width: 150px;">
                                 <div class="row no-gutters">
                                     <div class="col md-6">

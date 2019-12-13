@@ -17,6 +17,7 @@
                                 <th>Description</th>
                                 <th>Status</th>
                                 <th>Refilled</th>
+                                <th>Status IOT</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -27,6 +28,7 @@
                                     <td>{{$gallon->description}}</td>
                                     <td>{{$gallon->is_empty == 1 ? 'Empty' : 'Available' }}</td>
                                     <td>{{$gallon->nRefill}}</td>
+                                    <td>@if($gallon->is_on == '1')<p class="text-warning">Processing ({{$gallon->current_request}})</p>@else<p class="text-success">Idle</p>@endif</td>
                                 </tr>
                             @endforeach
                             </tbody>

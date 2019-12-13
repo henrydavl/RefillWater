@@ -11,6 +11,6 @@ class Ad extends Model
     ];
 
     public function path() {
-        return url('/storage/image/' . $this->image_path);
+        return url('/images/' . $this->image_path);
     }
 }

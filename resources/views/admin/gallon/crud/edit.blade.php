@@ -14,11 +14,11 @@
                     <input name="_method" type="hidden" value="PATCH">
                     <div class="form-group">
                         <label>Capacity (ml)</label>
-                        <input type="number" name="default_ml" class="form-control" required placeholder="Gallon max. capacity">
+                        <input type="number" name="default_ml" class="form-control" value="{{$gallon->default_ml}}">
                     </div>
                     <div class="form-group d-flex flex-column">
                         <label>Location</label>
-                        <input type="text" name="description" class="form-control" required placeholder="Gallon Location">
+                        <input type="text" name="description" class="form-control" value="{{$gallon->description}}">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Update Gallon</button>

@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
                 <div class="text-center py-2">
-                    <img src="{{ asset('storage/image/'.$ad->image_path) }}" height="250" class="img-profile" id="imgEdit">
+                    <img src="{{ asset('/images/'.$ad->image_path) }}" height="250" class="img-profile" id="imgEdit">
                 </div>
                 <form action="{{ route('advertisement.update', $ad->id) }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}

@@ -26,7 +26,7 @@
                                 <tr class="text-center">
                                     <td>{{$ad->title}}</td>
                                     <td>{{$ad->description}}</td>
-                                    <td><a href="" data-toggle="modal" data-target="#showModal-{{$ad->id}}"><img src="{{ asset('storage/image/'.$ad->image_path) }}" height="70"></a>
+                                    <td><a href="" data-toggle="modal" data-target="#showModal-{{$ad->id}}"><img src="{{ asset('images/'.$ad->image_path) }}" height="70"></a>
                                         @include('inc.modal.show')
                                     </td>
                                     <td>{{$ad->start_date}}</td>

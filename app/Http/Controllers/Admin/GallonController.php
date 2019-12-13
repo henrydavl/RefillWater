@@ -85,8 +85,9 @@ class GallonController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $g = Gallon::findOrFail($id);
+        $g->update($request->all());
+        return redirect()->back()->with('Success', 'Updated gallon #'.$id);
     }
 
     /**
