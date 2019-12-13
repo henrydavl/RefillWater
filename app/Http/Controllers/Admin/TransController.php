@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class TransController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'trans';
+        $transaction = Transaction::all();
+        return view('admin.trans.index', compact('transaction','pages'));
     }
 
     /**

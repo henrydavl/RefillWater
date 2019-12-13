@@ -44,7 +44,7 @@
             </div>
         </div>
     </li>
-    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="#"><i class="fas fa-table"></i><span>Refill Management</span></a></li>
+    <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'trans' ? 'active' : ''}}" href="{{ route('transactions.index') }}"><i class="fas fa-table"></i><span>Refill Management</span></a></li>
     <li class="nav-item" role="presentation"><a class="nav-link {{$pages == 'gallon' ? 'active' : ''}} " href="{{ route('gallon.index') }}"><i class="fas fa-water"></i><span>Water Level</span></a></li>
 
     <li class="nav-item" role="presentation">
