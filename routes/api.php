@@ -15,20 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware'=>'auth:api'], function(){
-    Route::get('user', function (){
-        dd('salut');
+    Route::get('test-token', function (){ //done
+        return response([
+            'message' => 'ok',
+        ]);
     });
-    Route::apiResource('my-ticket', 'Api\TicketController');
-    Route::apiResource('refill', 'Api\TransactionController');
-    Route::get('my-bottle', 'Api\UserController@getMyBottle');
-    Route::get('my-topUp', 'Api\ApplicationController@getTopUpHistory');
-    Route::get('profile', 'Api\UserController@profile');
+    Route::apiResource('my-ticket', 'Api\TicketController'); //done
+    Route::apiResource('refill', 'Api\TransactionController'); //done
+    Route::get('my-bottle', 'Api\UserController@getMyBottle'); //done
+    Route::get('my-topUp', 'Api\ApplicationController@getTopUpHistory'); //done
+    Route::get('profile', 'Api\UserController@profile'); //done
+    Route::post('edit-profile', 'Api\UserController@editProfile'); //done
+    Route::post('logout', 'Api\Auth\LoginController@logout'); //done
 });
 
-Route::post('login', 'Api\Auth\LoginController@login');
-Route::post('logout', 'Api\Auth\LoginController@logout');
-Route::post('refresh', 'Api\Auth\LoginController@refresh');
-Route::post('register', 'Api\Auth\RegisterController@register');
+Route::post('login', 'Api\Auth\LoginController@login'); //done
+Route::post('refresh', 'Api\Auth\LoginController@refresh'); //done
+Route::post('register', 'Api\Auth\RegisterController@register'); //done
+Route::post('forgot', 'Api\Auth\LoginController@forgotCheck'); //done
+Route::post('new-password', 'Api\Auth\LoginController@forgotPassword'); //done
 
-Route::get('gallons', 'Api\ApplicationController@getGallon')->name('api.gallons');
-Route::get('ads', 'Api\ApplicationController@getAds')->name('api.ads');
+Route::get('gallons/{gallon}', 'Api\ApplicationController@specific'); //done
+Route::get('gallons/{id}/{done}', 'Api\ApplicationController@statusGallon'); //done
+Route::get('gallons', 'Api\ApplicationController@getGallon')->name('api.gallons'); //done
+Route::get('ads', 'Api\ApplicationController@getAds')->name('api.ads'); //done

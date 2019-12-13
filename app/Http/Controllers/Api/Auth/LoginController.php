@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Passport\Client;
-use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
 {
@@ -21,7 +22,7 @@ class LoginController extends Controller
         $this->client = Client::find(2);
     }
 
-    public function login(Request $request)
+    public function login(Request $request) // no need authorization
     {
         $user = [
             'email' => $request->email,
@@ -32,23 +33,43 @@ class LoginController extends Controller
             'is_active' => '1'
         ];
 
-        if (Auth::attempt($user)){
-            $this->isLogin(Auth::id());
-            $params = [
-                'grant_type' => 'password',
-                'client_id' => $this->client->id,
-                'client_secret' => $this->client->secret,
-                'username' => request('email'),
-                'password' => request('password'),
-                'scope' => '*',
-            ];
+        $u = DB::table('users')->where('email', $request->email)->first();
 
-            $request->request->add($params);
-            $proxy = Request::create('oauth/token', 'POST');
-            return Route::dispatch($proxy);
+        if ($u->is_verified == '1') {
+            if ($u->is_active == '1') {
+                if ($u->is_login == '0') {
+                    if (Auth::attempt($user)){
+                        $this->isLogin(Auth::id());
+                        $params = [
+                            'grant_type' => 'password',
+                            'client_id' => $this->client->id,
+                            'client_secret' => $this->client->secret,
+                            'username' => request('email'),
+                            'password' => request('password'),
+                            'scope' => '*',
+                        ];
+
+                        $request->request->add($params);
+                        $proxy = Request::create('oauth/token', 'POST');
+                        return Route::dispatch($proxy);
+                    } else {
+                        return response([
+                            'message' => 'Login failed',
+                        ]);
+                    }
+                } else {
+                    return response([
+                        'message' => 'Account in use!',
+                    ]);
+                }
+            } else {
+                return response([
+                    'message' => 'Account disabled',
+                ]);
+            }
         } else {
             return response([
-                'message' => 'Login failed',
+                'message' => 'Please verify email address',
             ]);
         }
     }
@@ -60,7 +81,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function refresh(Request $request)
+    public function refresh(Request $request) // need authorization (refresh_token)
     {
         $this->validate($request, [
             'refresh_token' => 'required',
@@ -79,11 +100,60 @@ class LoginController extends Controller
         return Route::dispatch($proxy);
     }
 
-    public function logout(Request $request)
+    public function logout(Request $request) // need authorization
     {
-        $acc = User::findOrFail($request->id);
-        $acc->update([
+        $user = Auth::user();
+        $accessToken = Auth::user()->token();
+        DB::table('oauth_refresh_tokens')
+            ->where('access_token_id', $accessToken->id)
+            ->update(['revoked' => true]);
+        $user->update([
             'is_login' => '0',
+        ]);
+        $accessToken->revoke();
+
+        return response([
+            'message' => 'Logged out'
+        ]);
+    }
+
+    public function forgotCheck(Request $request) // no need authorization
+    {
+        $acc = DB::table('users')->where('email', $request->email)->first();
+        if ($acc == null) {
+            return response([
+                'message' => 'Account not found'
+            ]);
+        } else {
+            return response([
+                'message' => 'ok'
+            ]);
+        }
+    }
+
+    public function forgotPassword(Request $request) // no need authorization
+    {
+        $this->validator($request->all())->validate();
+        $pass = Hash::make($request->password);
+        $acc = DB::table('users')->where('email', $request->email)->update(['password' => $pass]);
+        if ($acc) {
+            return response([
+                'message' => 'Password changed, you can log in'
+            ]);
+        } else {
+            return response([
+                'message' => 'Change password failed, please try again'
+            ]);
+        }
+    }
+
+    private function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => 'exists:users,email',
+            'password' => 'required|string|min:8|confirmed'
+        ], [
+            'email.exists' => 'Email not found',
         ]);
     }
 }

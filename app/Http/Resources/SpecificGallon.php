@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class GallonResources extends JsonResource
+class SpecificGallon extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,8 @@ class GallonResources extends JsonResource
     {
         return [
             'id' => $this->id,
-            'default_ml' => $this->default_ml,
-            'current_ml' => $this->current_ml,
-            'description' => $this->description,
+            'is_on' => $this->is_on,
+            'current_request' => $this->current_request,
         ];
     }
 }

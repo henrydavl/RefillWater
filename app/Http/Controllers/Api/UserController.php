@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -52,7 +54,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail(Auth::id());
 
     }
 
@@ -71,5 +72,48 @@ class UserController extends Controller
     {
         $bottles = Bottle::all()->where('user_id', Auth::id());
         return BottleResource::collection($bottles);
+    }
+
+    public function profile()
+    {
+        $user = User::find(Auth::id());
+        if ($user == null) {
+            return response([
+                'message' => 'not found'
+            ]);
+        } else {
+            return response([
+                'data' => [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'balance' => $user->balance,
+                    'gender' => $user->gender,
+                    'majors' => $user->majors,
+                ]
+            ]);
+        }
+    }
+
+    public function editProfile(Request $request)
+    {
+        $data = $this->validator($request->all())->validate();
+        $data['password'] = Hash::make($request->password);
+        $user = User::findOrfail(Auth::id());
+        $user->update($data);
+        return response([
+            'message' => 'Update success'
+        ]);
+    }
+
+    private function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'sometimes|string|min:3',
+            'majors' => 'sometimes|string|min:3',
+            'password' => 'sometimes|string|min:8|confirmed'
+        ], [
+            'name.required' => 'We need to know your name',
+            'majors.required' => 'We need to know your major',
+        ]);
     }
 }

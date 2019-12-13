@@ -51,32 +51,38 @@ class TransactionController extends Controller
         $bottle = Bottle::findOrFail($request->bottle_id);
         $gallon = Gallon::findOrFail($request->gallon_id);
         $user = User::findOrFail(Auth::id());
-        if ($user->balance >= $bottle->price) {
-            $trans = Transaction::create([
-                'user_id' => Auth::id(),
-                'bottle_id' => $bottle->id,
-                'gallon_id' => $gallon->id,
-                'is_auto' => '1',
+        if  ($gallon->is_on == '0' && $gallon->current_request != null) {
+            return response([
+                'message' => 'Gallon in use',
             ]);
-            if (empty($trans)) {
-                return response([
-                    'message' => 'Something wrong, please try again!',
+        } else {
+            if ($user->balance >= $bottle->price) {
+                $trans = Transaction::create([
+                    'user_id' => Auth::id(),
+                    'bottle_id' => $bottle->id,
+                    'gallon_id' => $gallon->id,
+                    'is_auto' => '1',
                 ]);
+                if (empty($trans)) {
+                    return response([
+                        'message' => 'Something wrong, please try again!',
+                    ]);
+                } else {
+                    $user->update(['balance'=> $user->balance - $bottle->price]);
+                    $gallon->update([
+                        'current_ml' => $gallon->current_ml - $bottle->capacity,
+                        'is_on' => '0',
+                        'current_request' => $bottle->capacity,
+                    ]);
+                    return response([
+                        'message' => 'Enjoy, keep hydrated',
+                    ]);
+                }
             } else {
-                $user->update(['balance'=> $user->balance - $bottle->price]);
-                $gallon->update([
-                    'current_ml' => $gallon->current_ml - $bottle->capacity,
-                    'is_on' => '0',
-                    'current_request' => $bottle->capacity,
-                ]);
                 return response([
-                    'message' => 'Enjoy, keep hydrated',
+                    'message' => 'Not enough point!',
                 ]);
             }
-        } else {
-            return response([
-                'message' => 'Not enough point!',
-            ]);
         }
     }
 
