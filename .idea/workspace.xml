@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3399c359-a1c2-4c2a-8d6d-de8c61cc88a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GallonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GallonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Root/AdsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Root/AdsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1574059752.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1574059829.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1574908889.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1575202617.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1575271200.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1575271766.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1575275042.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1575275247.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1575275269.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/ad/crud/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ad/crud/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/ad/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ad/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallon/crud/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallon/crud/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallon/table/gallon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallon/table/gallon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/modal/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/modal/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/root/ad/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/root/ad/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/root/galon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/root/galon/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,41 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/root/galon/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="30" column="183" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="183" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/gallon/table/gallon.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="44" column="69" lean-forward="true" selection-start-line="44" selection-start-column="69" selection-end-line="44" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/gallon/crud/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="62" lean-forward="true" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GallonController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="89" column="75" selection-start-line="89" selection-start-column="75" selection-end-line="89" selection-end-column="75" />
-              <folding>
-                <element signature="e#46#61#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="1392">
+              <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -108,8 +58,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/bureau/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_10_16_022136_create_transactions_table.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/ticket/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Root/TranController.php" />
         <option value="$PROJECT_DIR$/resources/views/root/transaction/index.blade.php" />
@@ -159,6 +107,8 @@
         <option value="$PROJECT_DIR$/resources/views/admin/gallon/table/gallon.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/gallon/crud/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GallonController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
       </list>
     </option>
   </component>
@@ -286,11 +236,6 @@
               <item name="RefillWater" type="b2602c69:ProjectViewProjectNode" />
               <item name="RefillWater" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RefillWater" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RefillWater" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -380,7 +325,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126980000" />
+    <option name="totallyTimeSpent" value="127792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -411,20 +356,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/nav/menu/root.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/gallon/crud/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="107" selection-start-line="16" selection-start-column="107" selection-end-line="16" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/root/topUp/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -677,9 +608,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/storage/image/Minju_adsImage.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/storage/image/Minju_adsImage.jpg" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
@@ -774,6 +703,20 @@
           <folding>
             <element signature="e#46#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="30" column="19" lean-forward="true" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1392">
+          <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
         </state>
       </provider>
     </entry>
