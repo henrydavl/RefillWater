@@ -42,7 +42,7 @@ class ApplicationController extends Controller
                 ]);
             } else {
                 $gallon->update([
-                    'is_done' => '1',
+                    'is_on' => '1',
                     'current_request' => null,
                 ]);
 

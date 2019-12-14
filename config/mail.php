@@ -57,8 +57,10 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'name' => env('MAIL_FROM_NAME', 'Water Refill Application'),
     ],
+
+    'reply_to' => ['address' => 'thirstycorner.uc@gmail.com', 'name' => 'Water Refill Support Team'],
 
     /*
     |--------------------------------------------------------------------------
