@@ -16,7 +16,7 @@ class TopUpResources extends JsonResource
     {
         return [
             'topUp_by' => $this->admin->name,
-            'amount' => $this->amount,
+            'amount' => intVal($this->amount),
             'status' => $this->is_claimed == 1 ? 'Success' : 'Pending',
         ];
     }

@@ -86,7 +86,7 @@ class UserController extends Controller
                 'data' => [
                     'name' => $user->name,
                     'email' => $user->email,
-                    'balance' => $user->balance,
+                    'balance' => intVal($user->balance),
                     'gender' => $user->gender,
                     'majors' => $user->majors,
                 ]

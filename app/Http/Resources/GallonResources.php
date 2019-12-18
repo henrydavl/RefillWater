@@ -16,8 +16,8 @@ class GallonResources extends JsonResource
     {
         return [
             'id' => $this->id,
-            'default_ml' => $this->default_ml,
-            'current_ml' => $this->current_ml,
+            'default_ml' => intVal($this->default_ml),
+            'current_ml' => intVal($this->current_ml),
             'description' => $this->description,
         ];
     }

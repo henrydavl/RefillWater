@@ -16,8 +16,8 @@ class BottleResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'capacity' => $this->capacity,
-            'price' => $this->price,
+            'capacity' => intVal($this->capacity),
+            'price' => intVal($this->price),
         ];
     }
 }
