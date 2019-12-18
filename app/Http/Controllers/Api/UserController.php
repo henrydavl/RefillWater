@@ -70,7 +70,10 @@ class UserController extends Controller
 
     public function getMyBottle()
     {
-        $bottles = Bottle::all()->where('user_id', Auth::id());
+        $bottles = Bottle::where(function ($q){
+            $q->where('user_id', 32)->orWhere('user_id', Auth::id())->groupBy('user_id');
+        })->get();
+//        $bottles = Bottle::all()->where('user_id', Auth::id());
         return BottleResource::collection($bottles);
     }
 

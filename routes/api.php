@@ -35,6 +35,8 @@ Route::post('register', 'Api\Auth\RegisterController@register'); //done
 Route::post('forgot', 'Api\Auth\LoginController@forgotCheck'); //done
 Route::post('new-password', 'Api\Auth\LoginController@forgotPassword'); //done
 
+Route::get('bottle-all', 'Api\ApplicationController@bottle');
+
 Route::get('gallons/{gallon}', 'Api\ApplicationController@specific'); //done
 Route::get('gallons/{id}/{done}', 'Api\ApplicationController@statusGallon'); //done
 Route::get('gallons', 'Api\ApplicationController@getGallon')->name('api.gallons'); //done

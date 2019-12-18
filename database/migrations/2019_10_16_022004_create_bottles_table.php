@@ -17,7 +17,7 @@ class CreateBottlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('capacity');
             $table->string('price');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Ad;
+use App\Bottle;
 use App\Gallon;
 use App\Http\Resources\AdvertisementResources;
+use App\Http\Resources\DummyResource;
 use App\Http\Resources\GallonResources;
 use App\Http\Resources\SpecificGallon;
 use App\Http\Resources\TopUpResources;
 use App\TopUp;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class ApplicationController extends Controller
 {
@@ -31,6 +31,13 @@ class ApplicationController extends Controller
 
     public function specific(Gallon $gallon) {
         return new SpecificGallon($gallon);
+    }
+
+    public function bottle(){
+        $bottle = Bottle::where(function ($q){
+            $q->where('user_id', 17)->orWhere('user_id', 15)->groupBy('user_id');
+        })->get();
+        return DummyResource::collection($bottle);
     }
 
     public function statusGallon($id, $done) {
