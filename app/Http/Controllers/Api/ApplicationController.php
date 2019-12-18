@@ -34,8 +34,8 @@ class ApplicationController extends Controller
     }
 
     public function statusGallon($id, $done) {
+        $gallon = Gallon::find($id);
         if ($done == 1) {
-            $gallon = Gallon::find($id);
             if ($gallon == null) {
                 return response([
                     'message' => 'not found'
@@ -48,6 +48,20 @@ class ApplicationController extends Controller
 
                 return response([
                     'message' => 'complete'
+                ]);
+            }
+        } else if ($done != 0){
+            if ($gallon->current_request == null){
+                $gallon->update([
+                    'is_on' => '0',
+                    'current_request' => 600,
+                ]);
+                return response([
+                    'message' => 'updated'
+                ]);
+            } else {
+                return response([
+                    'message' => 'unavailable'
                 ]);
             }
         } else {
