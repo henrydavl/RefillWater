@@ -17,7 +17,7 @@ class TransactionResources extends JsonResource
         return [
             'id' => $this->id,
             'bottle_size' => intVal($this->bottle->capacity),
-            'gallon_loc' => $this->gallon->description,
+            'gallon_id' => $this->gallon_id,
             'cost' => intVal($this->bottle->price),
             'transaction_date' => $this->created_at->format('m/d/Y'),
         ];

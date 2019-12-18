@@ -1,0 +1,373 @@
+@font-face {
+	font-family: navbarFont;
+	src: url(../font/Metropolis-Black.otf);
+  }
+  @font-face {
+	font-family: Metmedium;
+	src: url(../font/Metropolis-Medium.otf);
+  }
+
+
+body{
+    background: url(../image/bgn.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+}
+/* WELCOME */
+.welcome{
+	text-align: center;
+	height: 100vh;
+}
+.logo-wel{
+	width: 30%;
+	margin-left: 35%;
+	margin-right: 35%;
+	
+}
+.water-refill{
+	width: 70%;
+	margin-top: -3%;
+	margin-left: 23%;
+	margin-right: 17%;
+}
+.bubble{
+	background-repeat: no-repeat;
+	width: 40%;
+	margin-top: -35%;
+	margin-left: 3%;
+	margin-right: 57%;
+	z-index: -2;
+}
+.welcome-desc{
+	font-family: navbarFont;
+	letter-spacing: 4px;
+	font-size: 1.3em;
+	color: white;
+	margin-top: -10%;
+	margin-left: 30%;
+	margin-right: 30%;
+	z-index: 2;
+}
+
+/* END OF WELCOME */
+
+#logo{
+	width: 25%;
+	padding: 5%;
+	margin-left: 40%;
+	transition: 0.5s;
+}
+
+.loh{
+	margin-right: 9%;
+}
+.nav-item{
+	font-family: navbarFont;
+	font-size: 1.1em;
+	padding-left:40px;
+	padding-right:40px;
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+	font-family: navbarFont;
+	color: #7AC1EF;
+	transition: ease-in 0.5s;
+  }
+  
+.garis{
+	background-color: white;
+	height: 0.3vh;
+	margin: 0 10em;
+}
+
+/* ABOUT */
+
+.about{
+	padding: 0 8.5%;
+	height: 100vh;
+
+}
+.aboutCon{
+	margin-top: 3%;
+	height: 75vh;
+	padding-top: 4%;
+	padding-left: 3%;
+	background: rgb(151,224,255);
+	background: linear-gradient(90deg, rgba(151,224,255,1) 10%, rgba(202,237,255,1) 25%, rgba(202,237,255,1) 100%);
+	border-radius: 50px;
+	box-shadow: 10px 10px 10px black;
+	position: relative;
+	z-index: 3;
+}
+
+.about_txt h6{
+	font-family: navbarFont;
+	letter-spacing: 4px;
+	font-size: 1.3em;
+	color: white;
+	margin-bottom: 3.5%;
+}
+
+.about_txt h1{
+	font-family: navbarFont;
+	line-height: 90%;
+	font-size: 4.5em;
+	margin-bottom: 5%;
+	color: #1B4464;
+}
+
+.about_txt p{
+	font-size: 1.1em;
+	line-height: 200%;
+	padding-right: 10%;
+	margin-bottom: 7%;
+	font-family: Metmedium;
+}
+
+.about_txt button{
+	background-color: #1B4464; 
+	font-family: navbarFont;
+	font-size: 1.3em;
+	border: none;
+	color: white;
+	padding: 3% 30%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 50px;
+	
+}
+
+.about_img img{
+	width: 80%;
+	margin-left: 10%;
+}
+
+.assetAbout{
+	position: absolute;
+	width: 17%;
+	right: 2%;
+	top: 30%;
+	z-index: 2;
+}
+
+/* ABOUT END */
+
+
+/* FEATURES */
+.features {
+	background: rgb(151,224,255);
+	background: linear-gradient(90deg, rgba(151,224,255,1) 10%, rgba(202,237,255,1) 25%, rgba(202,237,255,1) 100%);
+	height: 110vh;
+}
+
+.air{
+	position: absolute;
+	width: 100%;
+	top: -50%;
+	left: 0;
+}
+
+.asset1{
+	position: absolute;
+	width: 20%;
+	top: 10%;
+	left: 0;
+}
+
+.asset2{
+	position: absolute;
+	width: 17%;
+	top: 5%;
+	right: 3%;
+}
+
+
+.featuresCon h6{
+	font-family: navbarFont;
+	letter-spacing: 4px;
+	font-size: 1.3em;
+	color: #7AC1EF;
+	margin: 3.5% 0% 1.5% 0%;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+.featuresCon h1{
+	font-family: navbarFont;
+	line-height: 90%;
+	font-size: 3em;
+	color: #E8F5FE;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+.features_box{
+	margin-top: 10%;
+	margin-left: 40%;
+	border: 5px solid #7AC1EF;
+	padding : 5%;
+	border-radius: 25px;
+}
+
+.features_box h1{
+	text-align: left;
+	margin-bottom: 4%;
+	font-size: 400%;
+	font-family: navbarFont;
+	color: #1B4464;
+}
+
+.features_box p{
+	font-family: Metmedium;
+	font-size: 130%;
+	text-align: left;
+	color: black;
+}
+
+.features_box2{
+	margin-top: 10%;
+	margin-left: 40%;
+	border: 5px solid #7AC1EF;
+	padding : 5%;
+	border-radius: 25px;
+}
+
+.features_box2 h1 {
+	color: #1B4464;
+	text-align: left;
+	font-size: 400%;
+	margin-bottom: 4%;
+	font-family: navbarFont;
+}
+
+.features_box2 p{
+	font-family: Metmedium;
+	text-align: left;
+	font-size: 130%;
+	color: black;
+}
+
+.features_box3{
+	margin-top: 10%;
+	margin-right: 40%;
+	border: 5px solid #7AC1EF;
+	padding : 5%;
+	border-radius: 25px;
+}
+
+.features_box3 h1{
+	color: #1B4464;
+	text-align: left;
+	margin-bottom: 4%;
+	font-size: 400%;
+	font-family: navbarFont;
+}
+
+.features_box3 p{
+	font-family: Metmedium;
+	text-align: left;
+	color: black;
+	font-size: 130%;
+}
+
+.features_box4{
+	margin-top: 10%;
+	margin-right: 40%;
+	border: 5px solid #7AC1EF;
+	padding : 5%;
+	border-radius: 25px;
+}
+
+.features_box4 h1 {
+	color: #1B4464;
+	text-align: left;
+	font-size: 400%;
+	margin-bottom: 4%;
+	font-family: navbarFont;
+}
+
+.features_box4 p{
+	font-family: Metmedium;
+	text-align: left;
+	color: black;
+	font-size: 130%;
+}
+
+.features_img img{
+	width: 70%;
+	text-align: center;
+	z-index: 2;
+	position: relative;
+	top: 27%;
+	left: 16.5%;
+}
+
+/* APPS DOWNLOAD */
+
+.apps{
+	padding: 8% 8.5%;
+	height: 100vh;
+	background-color: #1B4464;
+
+}
+
+.apps_txt h6{
+	font-family: navbarFont;
+	letter-spacing: 4px;
+	font-size: 1.1em;
+	color: #7AC1EF;
+	margin-top: 20%;
+	margin-bottom: 5.5%;
+	text-align: center;
+}
+
+.apps_txt h1{
+	font-family: navbarFont;
+	line-height: 90%;
+	font-size: 4.5em;
+	margin-bottom: 8%;
+	color: white;
+	text-align: center;
+}
+
+.apps_txt p{
+	font-size: 1.1em;
+	line-height: 200%;
+	margin-bottom: 7%;
+	font-family: Metmedium;
+	color: white;
+	text-align: center;
+}
+
+.apps_txt button{
+	background-color: white; 
+	font-family: navbarFont;
+	font-size: 1.3em;
+	border: none;
+	color: #1B4464;
+	padding: 3% 30%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 50px;
+	margin: 0 auto;
+	display: block;
+	transition: 1s;
+}
+
+.apps_txt button:hover{
+	background-color: #00d700; 
+	color: white;
+	transition: 1s;
+}
+
+.apps_img img{
+	width: 110%;
+}
+
+/* END OF APPS */
