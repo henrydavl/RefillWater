@@ -51,7 +51,7 @@ class TopUpsController extends Controller
 
         $user = User::findOrFail($request->user_id);
         $user->update([
-            'balance' => $request->amount,
+            'balance' => $user->balance + $request->amount,
         ]);
 
         return redirect()->route('top-up.index')->with('Success', 'Top Up Success');
